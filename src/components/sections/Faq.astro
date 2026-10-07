@@ -1,0 +1,80 @@
+---
+import ChevronDown from '@lucide/astro/icons/chevron-down';
+import { SITE, SPACARE_PRICING, whatsapp } from '../../data/site';
+
+/** Answers use only confirmed facts; keep them in sync with SpaCare's plans. */
+const FAQS = [
+  {
+    q: 'Apa itu PosCare?',
+    a: 'PosCare adalah platform operasional bisnis. Di atas fondasi yang sama (pelanggan, transaksi, pembayaran, dan laporan), PosCare membuat solusi khusus untuk tiap jenis usaha, seperti SpaCare untuk bisnis spa.',
+  },
+  {
+    q: 'Solusi apa yang sudah bisa dipakai?',
+    a: 'Saat ini SpaCare, untuk baby spa, mom spa, spa dewasa, dan bisnis treatment, di spa.poscare.id. LaundryCare, SportCare, dan RetailCare segera hadir.',
+  },
+  {
+    q: 'Berapa biaya SpaCare?',
+    a: `Mulai ${SPACARE_PRICING.fromMonthly} per bulan. Tersedia paket bulanan, 3 bulan, dan tahunan.`,
+  },
+  {
+    q: 'Apakah bisa dicoba dulu?',
+    a: `Bisa. Owner baru bisa coba gratis ${SPACARE_PRICING.trialDays} hari tanpa perlu bayar di awal. Daftar langsung di spa.poscare.id.`,
+  },
+  {
+    q: 'Perlu install aplikasi?',
+    a: 'Tidak wajib. SpaCare dibuka dari browser di HP atau laptop, dan bisa dipasang ke layar utama HP supaya terasa seperti aplikasi.',
+  },
+  {
+    q: 'Bagaimana pembayaran QRIS-nya?',
+    a: 'QRIS tampil saat checkout di kasir dan status pembayarannya tercatat otomatis di transaksi. Saldo QRIS bisa ditarik ke rekening bank atau e-wallet. Pembayaran diproses melalui mitra penyedia jasa pembayaran; PosCare bukan bank atau payment gateway.',
+  },
+  {
+    q: 'Bisnis saya belum ada solusinya. Bagaimana?',
+    a: 'Ceritakan cara kerja bisnis Anda lewat WhatsApp. Solusi berikutnya kami bangun dari kebutuhan nyata.',
+  },
+];
+
+const faqJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: FAQS.map(({ q, a }) => ({
+    '@type': 'Question',
+    name: q,
+    acceptedAnswer: { '@type': 'Answer', text: a },
+  })),
+};
+---
+
+<section id="faq" class="container-page section">
+  <div class="grid gap-10 lg:grid-cols-[1fr_1.6fr] lg:gap-16">
+    <div>
+      <p class="eyebrow">Tanya jawab</p>
+      <h2 class="h2 mt-3">Yang sering ditanyakan.</h2>
+      <p class="lead mt-4">Belum ketemu jawabannya? Tanya langsung, kami balas lewat WhatsApp.</p>
+      <a
+        href={whatsapp('Halo PosCare, saya ingin bertanya: ')}
+        rel="noopener"
+        class="btn-secondary mt-6"
+      >
+        Chat {SITE.whatsappDisplay}
+      </a>
+    </div>
+
+    <div class="divide-y divide-border border-y border-border">
+      {FAQS.map(({ q, a }) => (
+        <details class="group">
+          <summary class="flex min-h-14 cursor-pointer list-none items-center justify-between gap-4 py-4 text-left text-base font-semibold [&::-webkit-details-marker]:hidden">
+            {q}
+            <ChevronDown
+              size={20}
+              class="shrink-0 text-subtle transition-transform group-open:rotate-180"
+              aria-hidden="true"
+            />
+          </summary>
+          <p class="pb-5 text-[15px] leading-relaxed text-muted">{a}</p>
+        </details>
+      ))}
+    </div>
+  </div>
+  <script type="application/ld+json" set:html={JSON.stringify(faqJsonLd)} />
+</section>

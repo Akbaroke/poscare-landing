@@ -9,6 +9,15 @@ export const SITE = {
   /** WhatsApp in international format (wa.me), and as people read it. */
   whatsapp: '6285144909320',
   whatsappDisplay: '0851-4490-9320',
+  company: 'PT Akbar Teknologi Utama',
+  city: 'Bekasi',
+  country: 'Indonesia',
+} as const;
+
+/** SpaCare plan facts shown on the landing page (confirmed by the owner, Oct 2026). */
+export const SPACARE_PRICING = {
+  fromMonthly: 'Rp29.000',
+  trialDays: 3,
 } as const;
 
 export const SPACARE_URL = 'https://spa.poscare.id';

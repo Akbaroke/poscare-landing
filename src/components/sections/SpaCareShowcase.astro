@@ -7,7 +7,7 @@ import HandHeart from '@lucide/astro/icons/hand-heart';
 import Store from '@lucide/astro/icons/store';
 import Users from '@lucide/astro/icons/users';
 import spacareWordmark from '../../assets/brand/spacare-wordmark.png';
-import { SPACARE_REGISTER_URL, SPACARE_URL } from '../../data/site';
+import { SPACARE_PRICING, SPACARE_REGISTER_URL, SPACARE_URL } from '../../data/site';
 import QrisScreen from '../mockups/QrisScreen.astro';
 import ReportScreen from '../mockups/ReportScreen.astro';
 import SoapScreen from '../mockups/SoapScreen.astro';
@@ -89,9 +89,13 @@ const FEATURES = [
             <ArrowUpRight size={18} aria-hidden="true" />
           </a>
           <a href={SPACARE_REGISTER_URL} rel="noopener" class="btn-secondary">
-            Daftar dan coba gratis
+            Coba gratis {SPACARE_PRICING.trialDays} hari
           </a>
         </div>
+        <p class="mt-4 text-sm text-muted">
+          Mulai <span class="font-semibold text-ink">{SPACARE_PRICING.fromMonthly} per bulan</span>.
+          Coba gratis {SPACARE_PRICING.trialDays} hari tanpa perlu bayar di awal.
+        </p>
       </div>
 
       <div>

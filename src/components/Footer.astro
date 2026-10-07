@@ -15,6 +15,11 @@ const linkClass = 'text-[15px] text-muted transition-colors hover:text-ink';
       <p class="mt-2 max-w-xs text-sm leading-relaxed text-muted">
         Platform operasional bisnis yang disesuaikan dengan kebutuhan setiap industri.
       </p>
+      <p class="mt-4 text-sm leading-relaxed text-muted">
+        <span class="font-semibold text-ink">{SITE.company}</span>
+        <br />
+        {SITE.city}, {SITE.country}
+      </p>
     </div>
 
     <nav aria-labelledby="footer-products">
@@ -81,9 +86,10 @@ const linkClass = 'text-[15px] text-muted transition-colors hover:text-ink';
     </nav>
   </div>
   <div class="border-t border-border">
-    <div class="container-page flex flex-col gap-1 py-6 text-sm text-muted sm:flex-row sm:justify-between">
+    <!-- Bottom padding keeps the floating WhatsApp button off the last line. -->
+    <div class="container-page flex flex-col gap-1 pt-6 pb-24 text-sm text-muted sm:flex-row sm:justify-between">
       <p>
-        &copy; {year} PosCare. {SITE.tagline}.
+        &copy; {year} {SITE.company}. PosCare adalah {SITE.tagline}.
       </p>
       <p>{SITE.domain}</p>
     </div>

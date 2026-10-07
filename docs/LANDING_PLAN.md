@@ -127,7 +127,7 @@ karena saat ini satu-satunya produk yang bisa dimasuki adalah SpaCare) · CTA `L
   - **Katalog & reservasi** — Katalog layanan yang bisa dibagikan; pelanggan bisa memesan jadwal.
 - Visual: tiga mockup HP (Pelanggan + SOAP, Checkout QRIS, Laporan) — caption "Ilustrasi tampilan
   SpaCare. Data contoh."
-- CTA: `Explore SpaCare` → spa.poscare.id · sekunder `Daftar dan coba gratis` → spa.poscare.id/register
+- CTA: `Explore SpaCare` → spa.poscare.id · sekunder `Coba gratis 3 hari` → spa.poscare.id/register
 
 ### Filosofi
 
@@ -135,6 +135,13 @@ karena saat ini satu-satunya produk yang bisa dimasuki adalah SpaCare) · CTA `L
 - Copy: Setiap industri mempunyai workflow yang berbeda. PosCare membangun solusi berdasarkan cara
   bisnis benar-benar bekerja, bukan memaksa bisnis menyesuaikan diri dengan software.
 - Lima prinsip: Simple · Focused · Industry-specific · Mobile-first · Useful
+
+### FAQ (`#faq`)
+
+- H2: **Yang sering ditanyakan.** · tombol `Chat 0851-4490-9320`
+- Apa itu PosCare? · Solusi apa yang sudah bisa dipakai? · Berapa biaya SpaCare? (mulai Rp29.000/bulan;
+  paket bulanan, 3 bulan, tahunan) · Apakah bisa dicoba dulu? (gratis 3 hari, tanpa bayar di awal) ·
+  Perlu install aplikasi? · Bagaimana pembayaran QRIS-nya? · Bisnis saya belum ada solusinya?
 
 ### Final CTA
 
@@ -183,15 +190,15 @@ Per section
 
 ## 4. CTA
 
-| Lokasi        | CTA utama                        | Tujuan                  | CTA sekunder           | Tujuan                  |
-| ------------- | -------------------------------- | ----------------------- | ---------------------- | ----------------------- |
-| Navbar        | Lihat solusi                     | `#solusi`               | Masuk                  | spa.poscare.id/login    |
-| Hero          | Temukan solusi untuk bisnis Anda | `#solusi`               | Kenali PosCare         | `#pendekatan`           |
-| Kartu SpaCare | Buka SpaCare                     | https://spa.poscare.id  | –                      | –                       |
-| Kartu lain    | Kabari saya                      | WhatsApp (pesan terisi) | –                      | –                       |
-| Kartu terbuka | Ceritakan ke kami                | WhatsApp (pesan terisi) | –                      | –                       |
-| SpaCare       | Explore SpaCare                  | https://spa.poscare.id  | Daftar dan coba gratis | spa.poscare.id/register |
-| Final CTA     | Lihat semua solusi               | `#solusi`               | Hubungi kami           | WhatsApp (pesan terisi) |
+| Lokasi        | CTA utama                        | Tujuan                  | CTA sekunder       | Tujuan                  |
+| ------------- | -------------------------------- | ----------------------- | ------------------ | ----------------------- |
+| Navbar        | Lihat solusi                     | `#solusi`               | Masuk              | spa.poscare.id/login    |
+| Hero          | Temukan solusi untuk bisnis Anda | `#solusi`               | Kenali PosCare     | `#pendekatan`           |
+| Kartu SpaCare | Buka SpaCare                     | https://spa.poscare.id  | –                  | –                       |
+| Kartu lain    | Kabari saya                      | WhatsApp (pesan terisi) | –                  | –                       |
+| Kartu terbuka | Ceritakan ke kami                | WhatsApp (pesan terisi) | –                  | –                       |
+| SpaCare       | Explore SpaCare                  | https://spa.poscare.id  | Coba gratis 3 hari | spa.poscare.id/register |
+| Final CTA     | Lihat semua solusi               | `#solusi`               | Hubungi kami       | WhatsApp (pesan terisi) |
 
 Saat vertical lain rilis: ubah `status` di `src/data/products.ts` menjadi `available` dan isi `href`
 subdomainnya. Kartu, footer, dan diagram hero ikut berubah.
@@ -206,5 +213,8 @@ subdomainnya. Kartu, footer, dan diagram hero ikut berubah.
   dari lembar brand family (bukan ikon generik).
 - **Kebijakan privasi & syarat PosCare**: halaman `/privasi` dan `/syarat` menyatakan dokumen sedang
   disusun dan menautkan dokumen SpaCare yang berlaku.
-- **Kontak**: WhatsApp 0851-4490-9320 (kanal utama untuk CTA) dan `support@poscare.id`. Belum ada alamat.
+- **Perusahaan**: PT Akbar Teknologi Utama, Bekasi, Indonesia (footer, halaman legal, JSON-LD).
+- **Harga SpaCare**: mulai Rp29.000/bulan, coba gratis 3 hari (`SPACARE_PRICING` di `src/data/site.ts`).
+- Tombol WhatsApp mengambang di pojok kanan bawah.
+- **Kontak**: WhatsApp 0851-4490-9320 (kanal utama untuk CTA) dan `support@poscare.id`.
 - Tidak ada angka pengguna, testimoni, atau logo partner.
