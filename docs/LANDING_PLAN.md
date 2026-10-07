@@ -213,7 +213,6 @@ subdomainnya. Kartu, footer, dan diagram hero ikut berubah.
   dari lembar brand family (bukan ikon generik).
 - **Kebijakan privasi & syarat PosCare**: sudah ditulis (`src/data/legal/`), mengacu dokumen SpaCare;
   perlu tinjauan konsultan hukum.
-  disusun dan menautkan dokumen SpaCare yang berlaku.
 - **Perusahaan**: PT Akbar Teknologi Utama, Bekasi, Indonesia (footer, halaman legal, JSON-LD).
 - **Harga SpaCare**: mulai Rp29.000/bulan, coba gratis 3 hari (`SPACARE_PRICING` di `src/data/site.ts`).
 - Tombol WhatsApp mengambang di pojok kanan bawah.
