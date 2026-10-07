@@ -19,20 +19,20 @@ Prinsip yang dipegang:
 
 Satu halaman utama (`/`) dengan anchor, plus dua halaman legal placeholder.
 
-| #   | Section               | Anchor        | Tujuan                                                        |
-| --- | --------------------- | ------------- | ------------------------------------------------------------- |
-| 0   | Navbar                | –             | Orientasi + CTA selalu terlihat                               |
-| 1   | Hero                  | `#top`        | Pengunjung langsung paham PosCare itu apa                     |
-| 2   | Masalah               | `#masalah`    | "Terlalu banyak aplikasi" → relate dengan owner               |
-| 3   | Pendekatan            | `#pendekatan` | Bukan satu aplikasi untuk semua; di tengah sederhana–rumit    |
-| 4   | Keluarga produk       | `#solusi`     | Arahkan ke vertical sesuai bisnis (konversi utama)            |
-| 5   | Kenapa PosCare        | `#fitur`      | 6 alasan                                                      |
-| 6   | Alur kerja            | `#cara-kerja` | Pelanggan → Produk/Layanan → Transaksi → Pembayaran → Laporan |
-| 7   | SpaCare showcase      | `#spacare`    | Bukti nyata implementasi                                      |
-| 8   | Filosofi              | `#tentang`    | Brand belief                                                  |
-| 9   | Final CTA             | –             | Ajakan terakhir                                               |
-| 10  | Footer                | –             | Produk, perusahaan, legal, domain                             |
-| –   | `/privasi`, `/syarat` | –             | Placeholder jujur: kebijakan platform PosCare sedang disusun  |
+| #   | Section               | Anchor        | Tujuan                                                                               |
+| --- | --------------------- | ------------- | ------------------------------------------------------------------------------------ |
+| 0   | Navbar                | –             | Orientasi + CTA selalu terlihat                                                      |
+| 1   | Hero                  | `#top`        | Pengunjung langsung paham PosCare itu apa                                            |
+| 2   | Masalah               | `#masalah`    | "Terlalu banyak aplikasi" → relate dengan owner                                      |
+| 3   | Pendekatan            | `#pendekatan` | Bukan satu aplikasi untuk semua; di tengah sederhana–rumit                           |
+| 4   | Keluarga produk       | `#solusi`     | Arahkan ke vertical sesuai bisnis (konversi utama)                                   |
+| 5   | Kenapa PosCare        | `#fitur`      | 6 alasan                                                                             |
+| 6   | Alur kerja            | `#cara-kerja` | Pelanggan → Produk/Layanan → Transaksi → Pembayaran → Laporan                        |
+| 7   | SpaCare showcase      | `#spacare`    | Bukti nyata implementasi                                                             |
+| 8   | Filosofi              | `#tentang`    | Brand belief                                                                         |
+| 9   | Final CTA             | –             | Ajakan terakhir                                                                      |
+| 10  | Footer                | –             | Produk, perusahaan, legal, domain                                                    |
+| –   | `/privasi`, `/syarat` | –             | Kebijakan Privasi & Syarat PosCare (induk; dokumen SpaCare untuk hal khusus SpaCare) |
 
 Navbar: **Solusi** · **Cara kerja** · **SpaCare** · **Tentang** · `Masuk` (→ spa.poscare.id/login,
 karena saat ini satu-satunya produk yang bisa dimasuki adalah SpaCare) · CTA `Lihat solusi`.
@@ -211,7 +211,8 @@ subdomainnya. Kartu, footer, dan diagram hero ikut berubah.
   `poscare-mark.png`; favicon, apple-touch-icon, dan OG image dibuat dari file yang sama).
 - **Logo produk**: simbol dan wordmark SpaCare, LaundryCare, SportCare, RetailCare memakai aset resmi
   dari lembar brand family (bukan ikon generik).
-- **Kebijakan privasi & syarat PosCare**: halaman `/privasi` dan `/syarat` menyatakan dokumen sedang
+- **Kebijakan privasi & syarat PosCare**: sudah ditulis (`src/data/legal/`), mengacu dokumen SpaCare;
+  perlu tinjauan konsultan hukum.
   disusun dan menautkan dokumen SpaCare yang berlaku.
 - **Perusahaan**: PT Akbar Teknologi Utama, Bekasi, Indonesia (footer, halaman legal, JSON-LD).
 - **Harga SpaCare**: mulai Rp29.000/bulan, coba gratis 3 hari (`SPACARE_PRICING` di `src/data/site.ts`).

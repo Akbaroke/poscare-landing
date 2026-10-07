@@ -43,7 +43,9 @@ Ubah entri di `src/data/products.ts`: `status: 'available'`, isi `href` subdomai
 - **Logo produk** (simbol `<produk>care-mark.png` dan wordmark `<produk>care-wordmark.png` /
   `spacare-name.png`) diambil dari lembar brand family; dipakai `ProductIcon` dan `ProductWordmark`.
   `spacare-wordmark.png` (dengan daun) tetap dipakai di section SpaCare.
-- **Kebijakan privasi & syarat PosCare**: `/privasi` dan `/syarat` masih menautkan dokumen SpaCare.
+- **Kebijakan Privasi & Syarat PosCare**: isi di `src/data/legal/` (induk untuk situs dan semua produk;
+  dokumen SpaCare tetap berlaku untuk hal khusus SpaCare). Naikkan `LEGAL_EFFECTIVE_DATE` setiap ada
+  perubahan isi. Disarankan ditinjau konsultan hukum sebelum dipakai resmi.
 
 ## Deploy
 

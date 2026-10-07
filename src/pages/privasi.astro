@@ -1,5 +1,11 @@
 ---
+import { PRIVACY_INTRO, PRIVACY_SECTIONS } from '../data/legal/privacy';
 import Legal from '../layouts/Legal.astro';
 ---
 
-<Legal title="Kebijakan Privasi" spacarePath="/privacy" />
+<Legal
+  title="Kebijakan Privasi"
+  description="Data apa yang dikumpulkan PosCare dan produknya, untuk apa dipakai, siapa yang menerimanya, dan hak Anda atas data tersebut."
+  intro={PRIVACY_INTRO}
+  sections={PRIVACY_SECTIONS}
+/>
