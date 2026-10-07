@@ -4,7 +4,7 @@ import { SPACARE_URL, whatsapp } from './site';
  * The PosCare product family. When a vertical launches, set `status: 'available'` and its
  * subdomain `href`; the hero diagram, product cards, and footer all read from here.
  */
-export type ProductStatus = 'available' | 'in-development';
+export type ProductStatus = 'available' | 'coming-soon';
 
 export interface Product {
   id: 'spa' | 'laundry' | 'sport' | 'retail';
@@ -37,7 +37,7 @@ export const PRODUCTS: Product[] = [
     nameParts: ['Laundry', 'Care'],
     industry: 'Bisnis laundry',
     summary: 'Solusi operasional untuk bisnis laundry.',
-    status: 'in-development',
+    status: 'coming-soon',
     href: whatsapp(
       'Halo PosCare, saya tertarik dengan LaundryCare. Tolong kabari saya saat sudah tersedia. Nama usaha saya: ',
     ),
@@ -49,7 +49,7 @@ export const PRODUCTS: Product[] = [
     nameParts: ['Sport', 'Care'],
     industry: 'Bisnis olahraga',
     summary: 'Solusi operasional untuk bisnis olahraga.',
-    status: 'in-development',
+    status: 'coming-soon',
     href: whatsapp(
       'Halo PosCare, saya tertarik dengan SportCare. Tolong kabari saya saat sudah tersedia. Nama usaha saya: ',
     ),
@@ -61,7 +61,7 @@ export const PRODUCTS: Product[] = [
     nameParts: ['Retail', 'Care'],
     industry: 'Bisnis retail',
     summary: 'Solusi operasional untuk bisnis retail.',
-    status: 'in-development',
+    status: 'coming-soon',
     href: whatsapp(
       'Halo PosCare, saya tertarik dengan RetailCare. Tolong kabari saya saat sudah tersedia. Nama usaha saya: ',
     ),
@@ -71,7 +71,7 @@ export const PRODUCTS: Product[] = [
 
 export const STATUS_LABEL: Record<ProductStatus, string> = {
   available: 'Tersedia',
-  'in-development': 'Dalam pengembangan',
+  'coming-soon': 'Segera hadir',
 };
 
 export const isExternal = (href: string) => href.startsWith('http');

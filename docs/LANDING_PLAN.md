@@ -8,7 +8,7 @@ Prinsip yang dipegang:
 - PosCare = **Business Operations Platform** (platform induk), bukan aplikasi kasir.
 - Tidak ada angka, testimoni, logo partner, atau klaim yang belum ada datanya.
 - Hanya SpaCare yang ditandai **Tersedia**. LaundryCare, SportCare, RetailCare ditandai
-  **Dalam pengembangan** dan hanya dijelaskan di level positioning.
+  **Segera hadir** dan hanya dijelaskan di level positioning.
 - SOAP / rekam treatment hanya muncul di bagian SpaCare.
 - QRIS dijelaskan sebagai "pembayaran digital terintegrasi"; PosCare **bukan** bank / payment
   gateway (ada catatan kecil di bagian alur).
@@ -82,10 +82,10 @@ karena saat ini satu-satunya produk yang bisa dimasuki adalah SpaCare) · CTA `L
 - Kartu:
   - **SpaCare** — Solusi untuk bisnis spa. Baby spa, mom spa, spa dewasa, dan bisnis treatment.
     Badge `Tersedia` · CTA `Buka SpaCare` → spa.poscare.id
-  - **LaundryCare** — Solusi operasional untuk bisnis laundry. Badge `Dalam pengembangan` ·
+  - **LaundryCare** — Solusi operasional untuk bisnis laundry. Badge `Segera hadir` ·
     CTA `Kabari saya` (chat WhatsApp 0851-4490-9320 dengan pesan terisi)
-  - **SportCare** — Solusi operasional untuk bisnis olahraga. Badge `Dalam pengembangan` · `Kabari saya`
-  - **RetailCare** — Solusi operasional untuk bisnis retail. Badge `Dalam pengembangan` · `Kabari saya`
+  - **SportCare** — Solusi operasional untuk bisnis olahraga. Badge `Segera hadir` · `Kabari saya`
+  - **RetailCare** — Solusi operasional untuk bisnis retail. Badge `Segera hadir` · `Kabari saya`
   - Kartu terbuka (garis putus-putus): **Bisnis Anda belum ada di sini?** Ceritakan cara kerja
     bisnis Anda. Solusi berikutnya kami bangun dari kebutuhan nyata. → `Ceritakan ke kami`
 - Footnote: "Setiap solusi: Powered by PosCare."

@@ -21,7 +21,7 @@ const FOUNDATION = [
   <figcaption id="diagram-caption" class="sr-only">
     PosCare sebagai platform induk dengan fondasi pelanggan, produk dan layanan, transaksi,
     pembayaran, dan laporan. Di atasnya ada SpaCare (tersedia), LaundryCare, SportCare, dan
-    RetailCare (dalam pengembangan).
+    RetailCare (segera hadir).
   </figcaption>
 
   <!-- Parent platform -->
@@ -84,7 +84,7 @@ const FOUNDATION = [
               ]}
             >
               {live && <span class="size-1.5 rounded-full bg-spa" />}
-              {live ? STATUS_LABEL.available : 'Segera'}
+              {STATUS_LABEL[p.status]}
             </span>
           </a>
         </li>

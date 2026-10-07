@@ -1,5 +1,5 @@
 ---
-import { isExternal, PRODUCTS } from '../data/products';
+import { isExternal, PRODUCTS, STATUS_LABEL } from '../data/products';
 import { SITE, whatsapp } from '../data/site';
 import Logo from './Logo.astro';
 
@@ -31,7 +31,9 @@ const linkClass = 'text-[15px] text-muted transition-colors hover:text-ink';
             >
               {p.name}
             </a>
-            {p.status !== 'available' && <span class="ml-2 text-xs text-subtle">Segera</span>}
+            {p.status !== 'available' && (
+              <span class="ml-2 text-xs text-subtle">{STATUS_LABEL[p.status]}</span>
+            )}
           </li>
         ))}
       </ul>
