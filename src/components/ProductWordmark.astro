@@ -1,0 +1,35 @@
+---
+import laundryWordmark from '../assets/brand/laundrycare-wordmark.png';
+import retailWordmark from '../assets/brand/retailcare-wordmark.png';
+import spaWordmark from '../assets/brand/spacare-name.png';
+import sportWordmark from '../assets/brand/sportcare-wordmark.png';
+import type { Product } from '../data/products';
+
+/** A product's name wordmark (text only, the symbol is shown by ProductIcon), announced as its name. */
+interface Props {
+  id: Product['id'];
+  name: string;
+  /** Rendered height in px. */
+  height?: number;
+  class?: string;
+}
+const { id, name, height = 28, class: className } = Astro.props;
+
+const WORDMARKS = {
+  spa: spaWordmark,
+  laundry: laundryWordmark,
+  sport: sportWordmark,
+  retail: retailWordmark,
+};
+const img = WORDMARKS[id];
+---
+
+<img
+  src={img.src}
+  width={Math.round((img.width / img.height) * height)}
+  height={height}
+  alt={name}
+  draggable="false"
+  class:list={['block w-auto max-w-full select-none', className]}
+  style={`height:${height}px`}
+/>

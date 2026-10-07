@@ -202,6 +202,8 @@ subdomainnya. Kartu, footer, dan diagram hero ikut berubah.
 
 - **Logo**: sudah memakai logo resmi (`src/assets/brand/poscare-logo.png`, simbol di
   `poscare-mark.png`; favicon, apple-touch-icon, dan OG image dibuat dari file yang sama).
+- **Logo produk**: simbol dan wordmark SpaCare, LaundryCare, SportCare, RetailCare memakai aset resmi
+  dari lembar brand family (bukan ikon generik).
 - **Kebijakan privasi & syarat PosCare**: halaman `/privasi` dan `/syarat` menyatakan dokumen sedang
   disusun dan menautkan dokumen SpaCare yang berlaku.
 - **Kontak**: WhatsApp 0851-4490-9320 (kanal utama untuk CTA) dan `support@poscare.id`. Belum ada alamat.

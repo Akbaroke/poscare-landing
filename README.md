@@ -40,6 +40,9 @@ Ubah entri di `src/data/products.ts`: `status: 'available'`, isi `href` subdomai
 
 - **Logo** resmi ada di `src/assets/brand/poscare-logo.png` (wordmark) dan `poscare-mark.png`
   (simbol). Favicon, apple-touch-icon, dan OG image di `public/` dibuat dari file yang sama.
+- **Logo produk** (simbol `<produk>care-mark.png` dan wordmark `<produk>care-wordmark.png` /
+  `spacare-name.png`) diambil dari lembar brand family; dipakai `ProductIcon` dan `ProductWordmark`.
+  `spacare-wordmark.png` (dengan daun) tetap dipakai di section SpaCare.
 - **Kebijakan privasi & syarat PosCare**: `/privasi` dan `/syarat` masih menautkan dokumen SpaCare.
 
 ## Deploy

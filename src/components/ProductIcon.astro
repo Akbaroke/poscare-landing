@@ -1,10 +1,11 @@
 ---
-import Dumbbell from '@lucide/astro/icons/dumbbell';
-import Leaf from '@lucide/astro/icons/leaf';
-import ShoppingBag from '@lucide/astro/icons/shopping-bag';
-import WashingMachine from '@lucide/astro/icons/washing-machine';
+import laundryMark from '../assets/brand/laundrycare-mark.png';
+import retailMark from '../assets/brand/retailcare-mark.png';
+import spaMark from '../assets/brand/spacare-mark.png';
+import sportMark from '../assets/brand/sportcare-mark.png';
 import type { Product } from '../data/products';
 
+/** A product's official symbol on its soft identity tile. Decorative: the name sits next to it. */
 interface Props {
   id: Product['id'];
   size?: 'sm' | 'md' | 'lg';
@@ -12,20 +13,29 @@ interface Props {
 }
 const { id, size = 'md', class: className } = Astro.props;
 
-const ICONS = { spa: Leaf, laundry: WashingMachine, sport: Dumbbell, retail: ShoppingBag };
+const MARKS = { spa: spaMark, laundry: laundryMark, sport: sportMark, retail: retailMark };
 const TONES = {
-  spa: 'bg-spa-soft text-spa',
-  laundry: 'bg-laundry-soft text-laundry',
-  sport: 'bg-sport-soft text-sport',
-  retail: 'bg-retail-soft text-retail',
+  spa: 'bg-spa-soft',
+  laundry: 'bg-laundry-soft',
+  sport: 'bg-sport-soft',
+  retail: 'bg-retail-soft',
 };
-const BOX = { sm: 'size-9 rounded-md', md: 'size-11 rounded-md', lg: 'size-12 rounded-lg' };
-const GLYPH = { sm: 18, md: 22, lg: 24 };
-const Icon = ICONS[id];
+const BOX = { sm: 'size-9 rounded-md', md: 'size-11 rounded-md', lg: 'size-14 rounded-lg' };
+const GLYPH = { sm: 22, md: 28, lg: 36 };
+const mark = MARKS[id];
 ---
 
 <span
   class:list={['inline-flex shrink-0 items-center justify-center', TONES[id], BOX[size], className]}
 >
-  <Icon size={GLYPH[size]} stroke-width={1.75} aria-hidden="true" />
+  <img
+    src={mark.src}
+    width={GLYPH[size]}
+    height={GLYPH[size]}
+    alt=""
+    aria-hidden="true"
+    draggable="false"
+    class="object-contain select-none"
+    style={`width:${GLYPH[size]}px;height:${GLYPH[size]}px`}
+  />
 </span>

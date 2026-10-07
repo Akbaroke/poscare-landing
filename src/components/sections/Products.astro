@@ -5,6 +5,7 @@ import Plus from '@lucide/astro/icons/plus';
 import { isExternal, PRODUCTS, STATUS_LABEL } from '../../data/products';
 import { whatsapp } from '../../data/site';
 import ProductIcon from '../ProductIcon.astro';
+import ProductWordmark from '../ProductWordmark.astro';
 
 const STRIPE = {
   spa: 'bg-spa',
@@ -49,7 +50,9 @@ const [featured, ...others] = PRODUCTS;
                 {STATUS_LABEL[featured.status]}
               </span>
             </div>
-            <h3 class="mt-6 text-2xl font-bold tracking-tight">{featured.name}</h3>
+            <h3 class="mt-6">
+              <ProductWordmark id={featured.id} name={featured.name} height={32} />
+            </h3>
             <p class="mt-1 text-sm font-semibold text-spa">{featured.industry}</p>
             <p class="mt-4 text-[15px] leading-relaxed text-muted">{featured.summary}</p>
             {featured.audience && (
@@ -84,7 +87,9 @@ const [featured, ...others] = PRODUCTS;
               <ProductIcon id={p.id} />
               <span class="badge bg-sunken text-muted">{STATUS_LABEL[p.status]}</span>
             </div>
-            <h3 class="mt-5 text-xl font-bold tracking-tight">{p.name}</h3>
+            <h3 class="mt-5">
+              <ProductWordmark id={p.id} name={p.name} height={26} />
+            </h3>
             <p class="mt-2 flex-1 text-[15px] leading-relaxed text-muted">{p.summary}</p>
             <span class="mt-6 inline-flex items-center gap-1.5 text-[15px] font-semibold text-ink">
               {p.cta}
