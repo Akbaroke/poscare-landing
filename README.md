@@ -22,7 +22,7 @@ pnpm check      # astro check (TypeScript) + prettier --check
 ```
 src/
   data/products.ts      # daftar produk vertikal + status (sumber untuk diagram hero, kartu, footer)
-  data/site.ts          # URL SpaCare, email kontak, helper mailto
+  data/site.ts          # URL SpaCare, kontak (WhatsApp, email), helper link WhatsApp
   styles/global.css     # token warna/radius + utilitas bersama (btn, card, eyebrow, …)
   components/
     sections/           # satu file per section landing
@@ -36,10 +36,10 @@ src/
 Ubah entri di `src/data/products.ts`: `status: 'available'`, isi `href` subdomainnya (mis.
 `https://laundry.poscare.id`), dan `cta`. Diagram hero, kartu solusi, dan footer ikut berubah.
 
-## Placeholder yang perlu diganti
+## Placeholder
 
-- **Logo**: `LogoMark.astro`, `public/favicon.svg`, `public/apple-touch-icon.png`, dan
-  `public/og-image.png` memakai simbol P sementara. Ganti dengan file logo resmi.
+- **Logo** resmi ada di `src/assets/brand/poscare-logo.png` (wordmark) dan `poscare-mark.png`
+  (simbol). Favicon, apple-touch-icon, dan OG image di `public/` dibuat dari file yang sama.
 - **Kebijakan privasi & syarat PosCare**: `/privasi` dan `/syarat` masih menautkan dokumen SpaCare.
 
 ## Deploy

@@ -3,7 +3,7 @@ import ArrowRight from '@lucide/astro/icons/arrow-right';
 import ArrowUpRight from '@lucide/astro/icons/arrow-up-right';
 import Plus from '@lucide/astro/icons/plus';
 import { isExternal, PRODUCTS, STATUS_LABEL } from '../../data/products';
-import { mailto } from '../../data/site';
+import { whatsapp } from '../../data/site';
 import ProductIcon from '../ProductIcon.astro';
 
 const STRIPE = {
@@ -100,10 +100,7 @@ const [featured, ...others] = PRODUCTS;
 
       <li>
         <a
-          href={mailto(
-            'Solusi untuk bisnis saya',
-            'Halo PosCare, saya punya usaha di bidang: \n\nCara kerja bisnis saya: ',
-          )}
+          href={whatsapp('Halo PosCare, saya punya usaha di bidang: \nCara kerja bisnis saya: ')}
           class="group flex h-full flex-col rounded-lg border border-dashed border-border-strong p-6 transition-colors hover:border-navy"
         >
           <span class="flex size-11 items-center justify-center rounded-md border border-dashed border-border-strong text-muted">

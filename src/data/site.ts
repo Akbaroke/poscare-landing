@@ -6,16 +6,16 @@ export const SITE = {
   description:
     'PosCare adalah platform operasional bisnis dengan solusi khusus untuk setiap industri: pelanggan, transaksi, pembayaran, hingga laporan dalam satu alur.',
   email: 'support@poscare.id',
+  /** WhatsApp in international format (wa.me), and as people read it. */
+  whatsapp: '6285144909320',
+  whatsappDisplay: '0851-4490-9320',
 } as const;
 
 export const SPACARE_URL = 'https://spa.poscare.id';
 export const SPACARE_LOGIN_URL = `${SPACARE_URL}/login`;
 export const SPACARE_REGISTER_URL = `${SPACARE_URL}/register`;
 
-/** Prefilled email, so a "tell me" click arrives with context. */
-export function mailto(subject: string, body = ''): string {
-  const params = new URLSearchParams({ subject });
-  if (body) params.set('body', body);
-  // URLSearchParams encodes spaces as "+", which mail clients show literally.
-  return `mailto:${SITE.email}?${params.toString().replaceAll('+', '%20')}`;
+/** WhatsApp chat with a prefilled message: the main contact channel for owners. */
+export function whatsapp(text: string): string {
+  return `https://wa.me/${SITE.whatsapp}?text=${encodeURIComponent(text)}`;
 }

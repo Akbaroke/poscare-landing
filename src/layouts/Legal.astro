@@ -3,7 +3,7 @@ import ArrowLeft from '@lucide/astro/icons/arrow-left';
 import ArrowUpRight from '@lucide/astro/icons/arrow-up-right';
 import Footer from '../components/Footer.astro';
 import Navbar from '../components/Navbar.astro';
-import { mailto, SITE, SPACARE_URL } from '../data/site';
+import { SITE, SPACARE_URL, whatsapp } from '../data/site';
 import Base from './Base.astro';
 
 interface Props {
@@ -37,8 +37,11 @@ const { title, spacarePath } = Astro.props;
           {title} SpaCare
           <ArrowUpRight size={18} aria-hidden="true" />
         </a>
-        <a href={mailto(`Pertanyaan: ${title}`)} class="btn-secondary">
-          Tanya {SITE.email}
+        <a
+          href={whatsapp(`Halo PosCare, saya ingin bertanya tentang ${title}: `)}
+          class="btn-secondary"
+        >
+          Tanya lewat WhatsApp
         </a>
       </div>
     </div>

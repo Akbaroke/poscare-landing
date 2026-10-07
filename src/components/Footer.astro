@@ -1,6 +1,6 @@
 ---
 import { isExternal, PRODUCTS } from '../data/products';
-import { mailto, SITE } from '../data/site';
+import { SITE, whatsapp } from '../data/site';
 import Logo from './Logo.astro';
 
 const year = new Date().getFullYear();
@@ -48,8 +48,8 @@ const linkClass = 'text-[15px] text-muted transition-colors hover:text-ink';
           </a>
         </li>
         <li>
-          <a href={mailto('Pertanyaan tentang PosCare')} class={linkClass}>
-            Kontak
+          <a href={whatsapp('Halo PosCare, ')} rel="noopener" class={linkClass}>
+            WhatsApp {SITE.whatsappDisplay}
           </a>
         </li>
         <li>

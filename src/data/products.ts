@@ -1,4 +1,4 @@
-import { mailto, SPACARE_URL } from './site';
+import { SPACARE_URL, whatsapp } from './site';
 
 /**
  * The PosCare product family. When a vertical launches, set `status: 'available'` and its
@@ -38,9 +38,8 @@ export const PRODUCTS: Product[] = [
     industry: 'Bisnis laundry',
     summary: 'Solusi operasional untuk bisnis laundry.',
     status: 'in-development',
-    href: mailto(
-      'Kabari saya: LaundryCare',
-      'Halo PosCare, saya tertarik dengan LaundryCare. Nama usaha saya: ',
+    href: whatsapp(
+      'Halo PosCare, saya tertarik dengan LaundryCare. Tolong kabari saya saat sudah tersedia. Nama usaha saya: ',
     ),
     cta: 'Kabari saya',
   },
@@ -51,9 +50,8 @@ export const PRODUCTS: Product[] = [
     industry: 'Bisnis olahraga',
     summary: 'Solusi operasional untuk bisnis olahraga.',
     status: 'in-development',
-    href: mailto(
-      'Kabari saya: SportCare',
-      'Halo PosCare, saya tertarik dengan SportCare. Nama usaha saya: ',
+    href: whatsapp(
+      'Halo PosCare, saya tertarik dengan SportCare. Tolong kabari saya saat sudah tersedia. Nama usaha saya: ',
     ),
     cta: 'Kabari saya',
   },
@@ -64,9 +62,8 @@ export const PRODUCTS: Product[] = [
     industry: 'Bisnis retail',
     summary: 'Solusi operasional untuk bisnis retail.',
     status: 'in-development',
-    href: mailto(
-      'Kabari saya: RetailCare',
-      'Halo PosCare, saya tertarik dengan RetailCare. Nama usaha saya: ',
+    href: whatsapp(
+      'Halo PosCare, saya tertarik dengan RetailCare. Tolong kabari saya saat sudah tersedia. Nama usaha saya: ',
     ),
     cta: 'Kabari saya',
   },

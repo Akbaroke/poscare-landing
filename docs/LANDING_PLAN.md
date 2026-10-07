@@ -83,7 +83,7 @@ karena saat ini satu-satunya produk yang bisa dimasuki adalah SpaCare) · CTA `L
   - **SpaCare** — Solusi untuk bisnis spa. Baby spa, mom spa, spa dewasa, dan bisnis treatment.
     Badge `Tersedia` · CTA `Buka SpaCare` → spa.poscare.id
   - **LaundryCare** — Solusi operasional untuk bisnis laundry. Badge `Dalam pengembangan` ·
-    CTA `Kabari saya` (email ke support@poscare.id)
+    CTA `Kabari saya` (chat WhatsApp 0851-4490-9320 dengan pesan terisi)
   - **SportCare** — Solusi operasional untuk bisnis olahraga. Badge `Dalam pengembangan` · `Kabari saya`
   - **RetailCare** — Solusi operasional untuk bisnis retail. Badge `Dalam pengembangan` · `Kabari saya`
   - Kartu terbuka (garis putus-putus): **Bisnis Anda belum ada di sini?** Ceritakan cara kerja
@@ -140,13 +140,13 @@ karena saat ini satu-satunya produk yang bisa dimasuki adalah SpaCare) · CTA `L
 
 - H2: **Kelola bisnis tanpa dibuat rumit.**
 - Sub: Temukan solusi PosCare yang sesuai dengan bisnis Anda.
-- CTA: `Lihat semua solusi` → `#solusi` · sekunder `Hubungi kami` (email)
+- CTA: `Lihat semua solusi` → `#solusi` · sekunder `Hubungi kami` (WhatsApp)
 
 ### Footer
 
 - Logo POSCARE + "Business Operations Platform" + "poscare.id"
 - Produk: SpaCare · LaundryCare · SportCare · RetailCare (yang belum tersedia diberi label kecil)
-- Perusahaan: Tentang · Kontak (support@poscare.id)
+- Perusahaan: Tentang · WhatsApp 0851-4490-9320 · support@poscare.id
 - Legal: Kebijakan Privasi · Syarat & Ketentuan
 - © {tahun} PosCare
 
@@ -157,7 +157,7 @@ karena saat ini satu-satunya produk yang bisa dimasuki adalah SpaCare) · CTA `L
 Umum
 
 - Latar dominan off-white `#FAF9F6`, kartu putih dengan border 1px; whitespace lebar.
-- Navy `#0E1B3D` untuk teks utama & blok filosofi. Orange gradient (`#FF8A1F → #F0482A`) **hanya**
+- Navy `#070F33` untuk teks utama & blok filosofi. Orange gradient (`#FFA800 → #FE3D01`, diambil dari logo) **hanya**
   untuk aksen: simbol logo, tombol utama, garis penghubung pada diagram platform.
 - Font: Plus Jakarta Sans (typeface buatan Jakarta, di-self-host), angka tabular untuk mockup.
 - Radius: 10–16px pada kartu, 999px dihindari kecuali badge kecil. Shadow sangat tipis.
@@ -183,15 +183,15 @@ Per section
 
 ## 4. CTA
 
-| Lokasi        | CTA utama                        | Tujuan                    | CTA sekunder           | Tujuan                    |
-| ------------- | -------------------------------- | ------------------------- | ---------------------- | ------------------------- |
-| Navbar        | Lihat solusi                     | `#solusi`                 | Masuk                  | spa.poscare.id/login      |
-| Hero          | Temukan solusi untuk bisnis Anda | `#solusi`                 | Kenali PosCare         | `#pendekatan`             |
-| Kartu SpaCare | Buka SpaCare                     | https://spa.poscare.id    | –                      | –                         |
-| Kartu lain    | Kabari saya                      | mailto support@poscare.id | –                      | –                         |
-| Kartu terbuka | Ceritakan ke kami                | mailto support@poscare.id | –                      | –                         |
-| SpaCare       | Explore SpaCare                  | https://spa.poscare.id    | Daftar dan coba gratis | spa.poscare.id/register   |
-| Final CTA     | Lihat semua solusi               | `#solusi`                 | Hubungi kami           | mailto support@poscare.id |
+| Lokasi        | CTA utama                        | Tujuan                  | CTA sekunder           | Tujuan                  |
+| ------------- | -------------------------------- | ----------------------- | ---------------------- | ----------------------- |
+| Navbar        | Lihat solusi                     | `#solusi`               | Masuk                  | spa.poscare.id/login    |
+| Hero          | Temukan solusi untuk bisnis Anda | `#solusi`               | Kenali PosCare         | `#pendekatan`           |
+| Kartu SpaCare | Buka SpaCare                     | https://spa.poscare.id  | –                      | –                       |
+| Kartu lain    | Kabari saya                      | WhatsApp (pesan terisi) | –                      | –                       |
+| Kartu terbuka | Ceritakan ke kami                | WhatsApp (pesan terisi) | –                      | –                       |
+| SpaCare       | Explore SpaCare                  | https://spa.poscare.id  | Daftar dan coba gratis | spa.poscare.id/register |
+| Final CTA     | Lihat semua solusi               | `#solusi`               | Hubungi kami           | WhatsApp (pesan terisi) |
 
 Saat vertical lain rilis: ubah `status` di `src/data/products.ts` menjadi `available` dan isi `href`
 subdomainnya. Kartu, footer, dan diagram hero ikut berubah.
@@ -200,9 +200,9 @@ subdomainnya. Kartu, footer, dan diagram hero ikut berubah.
 
 ## 5. Placeholder / yang perlu dikonfirmasi
 
-- **Logo**: file logo resmi belum ada di repo; dipakai SVG sementara (`src/components/Logo.astro`)
-  yang mengikuti deskripsi (simbol P orange gradient, POS navy, CARE orange). Ganti dengan file resmi.
+- **Logo**: sudah memakai logo resmi (`src/assets/brand/poscare-logo.png`, simbol di
+  `poscare-mark.png`; favicon, apple-touch-icon, dan OG image dibuat dari file yang sama).
 - **Kebijakan privasi & syarat PosCare**: halaman `/privasi` dan `/syarat` menyatakan dokumen sedang
   disusun dan menautkan dokumen SpaCare yang berlaku.
-- **Kontak**: memakai `support@poscare.id` (sudah dipakai SpaCare). Belum ada nomor WhatsApp / alamat.
+- **Kontak**: WhatsApp 0851-4490-9320 (kanal utama untuk CTA) dan `support@poscare.id`. Belum ada alamat.
 - Tidak ada angka pengguna, testimoni, atau logo partner.

@@ -17,16 +17,16 @@
   --color-border: #e7e5e0;
   --color-border-strong: #d3d0c8;
 
-  --color-navy: #0e1b3d;
-  --color-navy-700: #26345a;
+  --color-navy: #070f33;
+  --color-navy-700: #1c2552;
   --color-navy-50: #eef0f6;
-  --color-ink: #0e1b3d;
+  --color-ink: #070f33;
   --color-muted: #5a6378;
   --color-subtle: #848b9b;
 
-  --color-orange-from: #ff8a1f;
-  --color-orange-to: #f0482a;
-  --color-orange: #f2622a;
+  --color-orange-from: #ffa800;
+  --color-orange-to: #fe3d01;
+  --color-orange: #fe4909;
   /* Orange for small text on white: passes WCAG AA. */
   --color-orange-ink: #b83a14;
   --color-orange-soft: #fff1e8;
@@ -48,8 +48,8 @@
   --radius-lg: 14px;
   --radius-xl: 20px;
 
-  --shadow-xs: 0 1px 2px rgb(14 27 61 / 0.05);
-  --shadow-sm: 0 1px 2px rgb(14 27 61 / 0.05), 0 4px 12px rgb(14 27 61 / 0.05);
+  --shadow-xs: 0 1px 2px rgb(7 15 51 / 0.05);
+  --shadow-sm: 0 1px 2px rgb(7 15 51 / 0.05), 0 4px 12px rgb(7 15 51 / 0.05);
 
   --container-page: 1160px;
 }
