@@ -1,0 +1,121 @@
+@import 'tailwindcss';
+@import '@fontsource-variable/plus-jakarta-sans';
+
+/*
+ * PosCare tokens. Navy carries the brand; the orange gradient is an accent only (logo mark,
+ * platform connectors, small highlights). Vertical colours identify each product.
+ */
+@theme {
+  --font-sans: 'Plus Jakarta Sans Variable', 'Plus Jakarta Sans', Arial, Helvetica, sans-serif;
+
+  --color-*: initial;
+  --color-white: #ffffff;
+  --color-transparent: transparent;
+  --color-bg: #faf9f6;
+  --color-surface: #ffffff;
+  --color-sunken: #f3f2ee;
+  --color-border: #e7e5e0;
+  --color-border-strong: #d3d0c8;
+
+  --color-navy: #0e1b3d;
+  --color-navy-700: #26345a;
+  --color-navy-50: #eef0f6;
+  --color-ink: #0e1b3d;
+  --color-muted: #5a6378;
+  --color-subtle: #848b9b;
+
+  --color-orange-from: #ff8a1f;
+  --color-orange-to: #f0482a;
+  --color-orange: #f2622a;
+  /* Orange for small text on white: passes WCAG AA. */
+  --color-orange-ink: #b83a14;
+  --color-orange-soft: #fff1e8;
+
+  --color-spa: #237a4b;
+  --color-spa-soft: #e6f3eb;
+  --color-spa-app: #12372a;
+  --color-spa-app-soft: #ddefe5;
+  --color-laundry: #1f5fd6;
+  --color-laundry-soft: #e7effd;
+  --color-sport: #c7520c;
+  --color-sport-soft: #fdeee2;
+  --color-retail: #6d3ad6;
+  --color-retail-soft: #f0eafd;
+
+  --radius-sm: 6px;
+  --radius: 8px;
+  --radius-md: 10px;
+  --radius-lg: 14px;
+  --radius-xl: 20px;
+
+  --shadow-xs: 0 1px 2px rgb(14 27 61 / 0.05);
+  --shadow-sm: 0 1px 2px rgb(14 27 61 / 0.05), 0 4px 12px rgb(14 27 61 / 0.05);
+
+  --container-page: 1160px;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 80px;
+    -webkit-text-size-adjust: 100%;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
+  body {
+    @apply bg-bg font-sans text-ink antialiased;
+    font-feature-settings: 'ss01' on;
+  }
+  :focus-visible {
+    outline: 2px solid var(--color-orange);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+  ::selection {
+    background: var(--color-orange-soft);
+  }
+}
+
+/* Shared building blocks (Tailwind utilities, so variants like `lg:` work on them). */
+@utility container-page {
+  @apply mx-auto w-full max-w-(--container-page) px-4 sm:px-6 lg:px-8;
+}
+@utility section {
+  @apply py-16 sm:py-20 lg:py-28;
+}
+@utility eyebrow {
+  @apply inline-flex items-center gap-2 text-sm font-semibold text-orange-ink;
+  &::before {
+    content: '';
+    @apply size-1.5 rounded-full bg-linear-to-br from-orange-from to-orange-to;
+  }
+}
+@utility h2 {
+  @apply text-3xl font-bold tracking-tight text-balance sm:text-4xl lg:text-[44px] lg:leading-[1.1];
+}
+@utility lead {
+  @apply text-base leading-relaxed text-pretty text-muted sm:text-lg;
+}
+
+@utility btn {
+  @apply inline-flex min-h-12 items-center justify-center gap-2 rounded-md px-5 text-[15px] font-semibold transition-colors duration-150;
+}
+@utility btn-primary {
+  @apply btn bg-navy text-white hover:bg-navy-700;
+}
+@utility btn-secondary {
+  @apply btn border border-border-strong bg-surface text-ink hover:border-navy;
+}
+@utility btn-ghost {
+  @apply btn px-3 text-ink hover:bg-sunken;
+}
+
+@utility card {
+  @apply rounded-lg border border-border bg-surface shadow-xs;
+}
+@utility badge {
+  @apply inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 text-xs font-semibold;
+}

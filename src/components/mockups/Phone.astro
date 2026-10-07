@@ -1,0 +1,31 @@
+---
+/** A plain phone frame for illustrative screens. Screen content is the default slot. */
+interface Props {
+  title: string;
+  label: string;
+  class?: string;
+}
+const { title, label, class: className } = Astro.props;
+---
+
+<figure class:list={['shrink-0', className]}>
+  <div
+    class="mx-auto w-[260px] rounded-[34px] border border-border-strong bg-navy p-2 shadow-sm"
+    role="img"
+    aria-label={label}
+  >
+    <div class="relative h-[548px] overflow-hidden rounded-[26px] bg-[#f7f9f8] font-[Arial,Helvetica,sans-serif] text-[#111]">
+      <div class="flex h-7 items-center justify-between px-5 text-[10px] font-bold">
+        <span>09.41</span>
+        <span class="h-3.5 w-16 rounded-full bg-navy" aria-hidden="true"></span>
+        <span class="tracking-tighter">● ● ▮</span>
+      </div>
+      <div class="flex h-11 items-center border-b border-[#e5e7eb] bg-white px-4">
+        <p class="text-[14px] font-bold">{title}</p>
+      </div>
+      <div class="space-y-2 p-3" aria-hidden="true">
+        <slot />
+      </div>
+    </div>
+  </div>
+</figure>

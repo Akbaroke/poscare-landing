@@ -1,0 +1,47 @@
+---
+import ArrowLeft from '@lucide/astro/icons/arrow-left';
+import ArrowUpRight from '@lucide/astro/icons/arrow-up-right';
+import Footer from '../components/Footer.astro';
+import Navbar from '../components/Navbar.astro';
+import { mailto, SITE, SPACARE_URL } from '../data/site';
+import Base from './Base.astro';
+
+interface Props {
+  title: string;
+  /** Path of the matching SpaCare document, e.g. `/privacy`. */
+  spacarePath: string;
+}
+const { title, spacarePath } = Astro.props;
+---
+
+<Base title={title} noindex>
+  <Navbar />
+  <main id="main" class="container-page max-w-3xl py-14 sm:py-20">
+    <a
+      href="/"
+      class="inline-flex items-center gap-1.5 text-sm font-semibold text-muted hover:text-ink"
+    >
+      <ArrowLeft size={16} aria-hidden="true" />
+      Kembali ke beranda
+    </a>
+    <h1 class="mt-6 text-3xl font-bold tracking-tight sm:text-4xl">{title}</h1>
+    <div class="card mt-8 p-6 sm:p-8">
+      <p class="text-base leading-relaxed">
+        {title} untuk platform PosCare sedang disusun dan akan diterbitkan di halaman ini.
+      </p>
+      <p class="mt-4 text-base leading-relaxed text-muted">
+        Bagi pengguna SpaCare, dokumen yang berlaku saat ini dapat dibaca langsung di SpaCare.
+      </p>
+      <div class="mt-6 flex flex-col gap-3 sm:flex-row">
+        <a href={`${SPACARE_URL}${spacarePath}`} rel="noopener" class="btn-primary">
+          {title} SpaCare
+          <ArrowUpRight size={18} aria-hidden="true" />
+        </a>
+        <a href={mailto(`Pertanyaan: ${title}`)} class="btn-secondary">
+          Tanya {SITE.email}
+        </a>
+      </div>
+    </div>
+  </main>
+  <Footer />
+</Base>

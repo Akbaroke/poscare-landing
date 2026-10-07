@@ -1,0 +1,131 @@
+---
+import ArrowUpRight from '@lucide/astro/icons/arrow-up-right';
+import BarChart3 from '@lucide/astro/icons/chart-column';
+import ClipboardList from '@lucide/astro/icons/clipboard-list';
+import QrCode from '@lucide/astro/icons/qr-code';
+import HandHeart from '@lucide/astro/icons/hand-heart';
+import Store from '@lucide/astro/icons/store';
+import Users from '@lucide/astro/icons/users';
+import spacareWordmark from '../../assets/brand/spacare-wordmark.png';
+import { SPACARE_REGISTER_URL, SPACARE_URL } from '../../data/site';
+import QrisScreen from '../mockups/QrisScreen.astro';
+import ReportScreen from '../mockups/ReportScreen.astro';
+import SoapScreen from '../mockups/SoapScreen.astro';
+
+const SPA_FLOW = ['Pelanggan', 'Treatment', 'Catatan & SOAP', 'Kasir', 'QRIS', 'Laporan'];
+
+const FEATURES = [
+  {
+    icon: Users,
+    title: 'Pelanggan',
+    body: 'Profil pelanggan dewasa dan anak, lengkap dengan riwayat kunjungan.',
+  },
+  {
+    icon: ClipboardList,
+    title: 'Catatan treatment & SOAP',
+    body: 'Subjective, Objective, Assessment, Plan tercatat di setiap kunjungan.',
+  },
+  {
+    icon: HandHeart,
+    title: 'Layanan & produk',
+    body: 'Daftar treatment dengan harga, serta produk beserta stoknya.',
+  },
+  {
+    icon: QrCode,
+    title: 'Kasir & QRIS',
+    body: 'Bayar cash atau QRIS, dengan diskon dan biaya tambahan seperti home visit.',
+  },
+  {
+    icon: BarChart3,
+    title: 'Laporan',
+    body: 'Pendapatan dan transaksi harian sampai bulanan, langsung dari HP.',
+  },
+  {
+    icon: Store,
+    title: 'Katalog & reservasi',
+    body: 'Katalog layanan yang bisa dibagikan, dan pelanggan bisa memesan jadwal.',
+  },
+];
+---
+
+<section id="spacare" class="bg-spa-soft/60">
+  <div class="container-page section">
+    <div class="grid gap-10 lg:grid-cols-2 lg:gap-16">
+      <div>
+        <div class="flex flex-wrap items-center gap-3">
+          <img
+            src={spacareWordmark.src}
+            width={Math.round((spacareWordmark.width / spacareWordmark.height) * 32)}
+            height="32"
+            alt="SpaCare"
+            class="h-8 w-auto"
+          />
+          <span class="badge border border-spa/30 bg-surface text-spa">Powered by PosCare</span>
+        </div>
+        <h2 class="h2 mt-6">Dimulai dari SpaCare.</h2>
+        <p class="lead mt-4">
+          Lihat bagaimana PosCare bekerja melalui SpaCare, aplikasi untuk baby spa, mom spa, dan spa
+          dewasa. Dari data pelanggan sampai rekam SOAP, semuanya bisa dijalankan dari HP.
+        </p>
+
+        <ol class="mt-6 flex flex-wrap items-center gap-x-1.5 gap-y-2 text-sm font-semibold">
+          {SPA_FLOW.map((step, i) => (
+            <li class="flex items-center gap-1.5">
+              <span class="rounded-sm bg-surface px-2 py-1 text-spa-app ring-1 ring-spa/20">
+                {step}
+              </span>
+              {i < SPA_FLOW.length - 1 && (
+                <span class="text-spa" aria-hidden="true">
+                  →
+                </span>
+              )}
+            </li>
+          ))}
+        </ol>
+
+        <div class="mt-8 flex flex-col gap-3 sm:flex-row">
+          <a href={SPACARE_URL} rel="noopener" class="btn bg-spa-app text-white hover:bg-navy">
+            Explore SpaCare
+            <ArrowUpRight size={18} aria-hidden="true" />
+          </a>
+          <a href={SPACARE_REGISTER_URL} rel="noopener" class="btn-secondary">
+            Daftar dan coba gratis
+          </a>
+        </div>
+      </div>
+
+      <div>
+        <ul class="grid gap-x-6 gap-y-6 sm:grid-cols-2">
+          {FEATURES.map(({ icon: Icon, title, body }) => (
+            <li class="flex gap-3">
+              <span class="flex size-9 shrink-0 items-center justify-center rounded-md bg-surface text-spa ring-1 ring-spa/15">
+                <Icon size={18} stroke-width={1.75} aria-hidden="true" />
+              </span>
+              <div>
+                <h3 class="text-[15px] font-bold">{title}</h3>
+                <p class="mt-0.5 text-sm leading-relaxed text-muted">{body}</p>
+              </div>
+            </li>
+          ))}
+        </ul>
+        <p class="mt-6 border-t border-spa/15 pt-4 text-[13px] text-muted">
+          Rekam treatment dan SOAP adalah fitur khusus SpaCare untuk kebutuhan bisnis spa.
+        </p>
+      </div>
+    </div>
+
+    <div class="mt-12 rounded-xl border border-spa/15 bg-surface/70 pt-8 pb-4 lg:mt-16 lg:pt-10">
+      <div
+        class="flex snap-x snap-mandatory gap-4 overflow-x-auto px-6 pb-4 lg:justify-center lg:gap-6 [&>figure]:snap-center"
+        tabindex="0"
+        role="region"
+        aria-label="Contoh layar SpaCare. Geser untuk melihat lainnya."
+      >
+        <SoapScreen />
+        <QrisScreen class="lg:mt-10" />
+        <ReportScreen />
+      </div>
+      <p class="px-4 text-center text-xs text-muted">Ilustrasi tampilan SpaCare. Data contoh.</p>
+    </div>
+  </div>
+</section>

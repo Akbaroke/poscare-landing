@@ -1,0 +1,68 @@
+---
+import Check from '@lucide/astro/icons/check';
+import Minus from '@lucide/astro/icons/minus';
+
+const OPTIONS = [
+  {
+    title: 'Terlalu sederhana',
+    body: 'Hanya mencatat penjualan. Pelanggan, layanan, dan laporan tetap di tempat lain.',
+    highlight: false,
+  },
+  {
+    title: 'PosCare',
+    body: 'Cukup lengkap untuk menjalankan bisnis, tetap sederhana dipakai setiap hari.',
+    highlight: true,
+  },
+  {
+    title: 'Terlalu rumit',
+    body: 'Fiturnya banyak, tapi lama dipelajari dan sebagian besar jarang terpakai.',
+    highlight: false,
+  },
+];
+---
+
+<section id="pendekatan" class="container-page section">
+  <div class="mx-auto max-w-3xl text-center">
+    <p class="eyebrow">Pendekatan kami</p>
+    <h2 class="h2 mt-3">
+      Setiap bisnis punya cara kerja yang berbeda.{' '}
+      <span class="whitespace-nowrap">Software-nya</span> juga seharusnya begitu.
+    </h2>
+    <p class="lead mx-auto mt-5 max-w-2xl">
+      Karena itu PosCare tidak membuat satu aplikasi yang dipaksakan untuk semua. Kami membangun
+      solusi khusus untuk setiap industri, di atas fondasi yang sama.
+    </p>
+  </div>
+
+  <ul class="mt-12 grid gap-3 md:grid-cols-3 md:items-stretch lg:mt-16">
+    {OPTIONS.map((o) => (
+      <li
+        class:list={[
+          'rounded-lg p-6',
+          o.highlight
+            ? 'order-first border-2 border-navy bg-surface shadow-sm md:order-none'
+            : 'border border-border bg-transparent',
+        ]}
+      >
+        <span
+          class:list={[
+            'flex size-8 items-center justify-center rounded-full',
+            o.highlight ? 'bg-navy text-white' : 'bg-sunken text-subtle',
+          ]}
+        >
+          {o.highlight ? (
+            <Check size={16} stroke-width={2.5} aria-hidden="true" />
+          ) : (
+            <Minus size={16} stroke-width={2.5} aria-hidden="true" />
+          )}
+        </span>
+        <h3 class:list={['mt-4 text-lg font-bold', !o.highlight && 'text-muted']}>{o.title}</h3>
+        <p
+          class:list={['mt-2 text-[15px] leading-relaxed', o.highlight ? 'text-ink' : 'text-muted']}
+        >
+          {o.body}
+        </p>
+      </li>
+    ))}
+  </ul>
+</section>

@@ -1,0 +1,74 @@
+---
+import Phone from './Phone.astro';
+
+const { class: className } = Astro.props as { class?: string };
+
+/** A QR-looking pattern (not a scannable code): fixed finder squares plus a seeded fill. */
+const N = 25;
+let seed = 7;
+const rand = () => (seed = (seed * 9301 + 49297) % 233280) / 233280;
+const inFinder = (x: number, y: number) =>
+  (x < 8 && y < 8) || (x >= N - 8 && y < 8) || (x < 8 && y >= N - 8);
+const cells: [number, number][] = [];
+for (let y = 0; y < N; y++)
+  for (let x = 0; x < N; x++) if (!inFinder(x, y) && rand() > 0.52) cells.push([x, y]);
+const finders = [
+  [0, 0],
+  [N - 7, 0],
+  [0, N - 7],
+];
+---
+
+<Phone
+  class={className}
+  title="Pembayaran"
+  label="Ilustrasi layar SpaCare: checkout dengan kode QRIS menunggu pembayaran."
+>
+  <div class="rounded-lg border border-[#e5e7eb] bg-white p-3 text-center">
+    <p class="text-[11px] text-[#6b7280]">Total tagihan</p>
+    <p class="text-[22px] font-bold tabular-nums">Rp185.000</p>
+    <div class="mx-auto mt-2 w-[150px] rounded-[6px] border border-[#e5e7eb] p-2">
+      <svg viewBox={`-1 -1 ${N + 2} ${N + 2}`} class="block w-full" shape-rendering="crispEdges">
+        {cells.map(([x, y]) => (
+          <rect x={x} y={y} width="1" height="1" fill="#111" />
+        ))}
+        {finders.map(([x, y]) => (
+          <g>
+            <rect
+              x={x! + 0.5}
+              y={y! + 0.5}
+              width="6"
+              height="6"
+              fill="none"
+              stroke="#111"
+              stroke-width="1"
+            />
+            <rect x={x! + 2} y={y! + 2} width="3" height="3" fill="#111" />
+          </g>
+        ))}
+      </svg>
+    </div>
+    <p class="mt-2 text-[10px] font-bold tracking-wide text-[#6b7280]">QRIS</p>
+    <div class="mt-2 inline-flex items-center gap-1.5 rounded-[4px] bg-[#fef3c7] px-2 py-1 text-[11px] font-bold text-[#92400e]">
+      <span class="size-1.5 rounded-full bg-[#92400e]"></span>
+      Menunggu pembayaran
+    </div>
+  </div>
+  <div class="rounded-lg border border-[#e5e7eb] bg-white p-3 text-[12px]">
+    <div class="flex justify-between">
+      <span class="text-[#6b7280]">Baby massage</span>
+      <span class="tabular-nums">Rp120.000</span>
+    </div>
+    <div class="mt-1.5 flex justify-between">
+      <span class="text-[#6b7280]">Baby swim</span>
+      <span class="tabular-nums">Rp80.000</span>
+    </div>
+    <div class="mt-1.5 flex justify-between">
+      <span class="text-[#6b7280]">Diskon</span>
+      <span class="tabular-nums">-Rp15.000</span>
+    </div>
+  </div>
+  <div class="rounded-[6px] border border-[#d1d5db] bg-white py-2.5 text-center text-[12px] font-bold">
+    Ganti ke cash
+  </div>
+</Phone>

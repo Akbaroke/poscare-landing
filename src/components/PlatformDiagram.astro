@@ -1,0 +1,98 @@
+---
+import BarChart3 from '@lucide/astro/icons/chart-column';
+import Package from '@lucide/astro/icons/package';
+import QrCode from '@lucide/astro/icons/qr-code';
+import ReceiptText from '@lucide/astro/icons/receipt-text';
+import Users from '@lucide/astro/icons/users';
+import { isExternal, PRODUCTS, STATUS_LABEL } from '../data/products';
+import LogoMark from './LogoMark.astro';
+import ProductIcon from './ProductIcon.astro';
+
+const FOUNDATION = [
+  { label: 'Pelanggan', icon: Users },
+  { label: 'Produk & layanan', icon: Package },
+  { label: 'Transaksi', icon: ReceiptText },
+  { label: 'Pembayaran', icon: QrCode },
+  { label: 'Laporan', icon: BarChart3 },
+];
+---
+
+<figure class="card p-4 sm:p-6" aria-labelledby="diagram-caption">
+  <figcaption id="diagram-caption" class="sr-only">
+    PosCare sebagai platform induk dengan fondasi pelanggan, produk dan layanan, transaksi,
+    pembayaran, dan laporan. Di atasnya ada SpaCare (tersedia), LaundryCare, SportCare, dan
+    RetailCare (dalam pengembangan).
+  </figcaption>
+
+  <!-- Parent platform -->
+  <div class="rounded-md bg-navy p-4 text-white sm:p-5">
+    <div class="flex items-center gap-3">
+      <span class="flex size-10 items-center justify-center rounded-md bg-white/10">
+        <LogoMark class="size-7" />
+      </span>
+      <div>
+        <p class="text-[17px] leading-tight font-bold">PosCare</p>
+        <p class="text-[13px] text-white/70">Business Operations Platform</p>
+      </div>
+    </div>
+    <p class="mt-4 mb-2 text-xs font-semibold text-white/60">Fondasi yang sama</p>
+    <ul class="flex flex-wrap gap-1.5">
+      {FOUNDATION.map(({ label, icon: Icon }) => (
+        <li class="inline-flex items-center gap-1.5 rounded-sm bg-white/10 px-2 py-1 text-[13px] font-medium">
+          <Icon size={14} stroke-width={2} aria-hidden="true" class="text-orange-from" />
+          {label}
+        </li>
+      ))}
+    </ul>
+  </div>
+
+  <!-- Connectors: trunk down, bar across, a drop into each product. -->
+  <div class="relative" aria-hidden="true">
+    <div class="mx-auto h-5 w-0.5 bg-orange"></div>
+    <div class="absolute right-[12.5%] bottom-0 left-[12.5%] h-0.5 bg-orange"></div>
+  </div>
+
+  <ul class="grid grid-cols-4 gap-1.5 sm:gap-3">
+    {PRODUCTS.map((p) => {
+      const live = p.status === 'available';
+      return (
+        <li class="relative pt-4">
+          <span
+            class="absolute top-0 left-1/2 h-4 w-0.5 -translate-x-1/2 bg-orange"
+            aria-hidden="true"
+          />
+          <a
+            href={p.href}
+            {...(isExternal(p.href) ? { rel: 'noopener' } : {})}
+            class:list={[
+              'flex h-full flex-col items-center gap-2 rounded-md border px-1 py-3 text-center transition-colors sm:px-2',
+              live
+                ? 'border-spa/40 bg-spa-soft/50 hover:border-spa'
+                : 'border-border hover:border-border-strong',
+            ]}
+          >
+            <ProductIcon id={p.id} size="sm" />
+            <span class="text-[12px] leading-tight font-bold sm:text-[13px]">
+              {p.nameParts[0]}
+              <wbr />
+              {p.nameParts[1]}
+            </span>
+            <span
+              class:list={[
+                'inline-flex items-center gap-1 text-[11px] leading-none font-medium',
+                live ? 'text-spa' : 'text-subtle',
+              ]}
+            >
+              {live && <span class="size-1.5 rounded-full bg-spa" />}
+              {live ? STATUS_LABEL.available : 'Segera'}
+            </span>
+          </a>
+        </li>
+      );
+    })}
+  </ul>
+
+  <p class="mt-4 border-t border-dashed border-border-strong pt-3 text-center text-[13px] text-muted">
+    Solusi untuk industri lain menyusul, di atas fondasi yang sama.
+  </p>
+</figure>

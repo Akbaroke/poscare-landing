@@ -1,0 +1,89 @@
+---
+import { isExternal, PRODUCTS } from '../data/products';
+import { mailto, SITE } from '../data/site';
+import Logo from './Logo.astro';
+
+const year = new Date().getFullYear();
+const linkClass = 'text-[15px] text-muted transition-colors hover:text-ink';
+---
+
+<footer class="border-t border-border bg-surface">
+  <div class="container-page grid gap-10 py-12 sm:grid-cols-2 lg:grid-cols-[1.4fr_1fr_1fr_1fr] lg:py-16">
+    <div>
+      <Logo />
+      <p class="mt-3 text-[15px] font-semibold">{SITE.tagline}</p>
+      <p class="mt-2 max-w-xs text-sm leading-relaxed text-muted">
+        Platform operasional bisnis yang disesuaikan dengan kebutuhan setiap industri.
+      </p>
+    </div>
+
+    <nav aria-labelledby="footer-products">
+      <h2 id="footer-products" class="text-sm font-bold">
+        Produk
+      </h2>
+      <ul class="mt-4 space-y-3">
+        {PRODUCTS.map((p) => (
+          <li>
+            <a
+              href={p.status === 'available' ? p.href : '/#solusi'}
+              {...(p.status === 'available' && isExternal(p.href) ? { rel: 'noopener' } : {})}
+              class={linkClass}
+            >
+              {p.name}
+            </a>
+            {p.status !== 'available' && <span class="ml-2 text-xs text-subtle">Segera</span>}
+          </li>
+        ))}
+      </ul>
+    </nav>
+
+    <nav aria-labelledby="footer-company">
+      <h2 id="footer-company" class="text-sm font-bold">
+        Perusahaan
+      </h2>
+      <ul class="mt-4 space-y-3">
+        <li>
+          <a href="/#tentang" class={linkClass}>
+            Tentang
+          </a>
+        </li>
+        <li>
+          <a href={mailto('Pertanyaan tentang PosCare')} class={linkClass}>
+            Kontak
+          </a>
+        </li>
+        <li>
+          <a href={`mailto:${SITE.email}`} class={linkClass}>
+            {SITE.email}
+          </a>
+        </li>
+      </ul>
+    </nav>
+
+    <nav aria-labelledby="footer-legal">
+      <h2 id="footer-legal" class="text-sm font-bold">
+        Legal
+      </h2>
+      <ul class="mt-4 space-y-3">
+        <li>
+          <a href="/privasi" class={linkClass}>
+            Kebijakan Privasi
+          </a>
+        </li>
+        <li>
+          <a href="/syarat" class={linkClass}>
+            Syarat &amp; Ketentuan
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+  <div class="border-t border-border">
+    <div class="container-page flex flex-col gap-1 py-6 text-sm text-muted sm:flex-row sm:justify-between">
+      <p>
+        &copy; {year} PosCare. {SITE.tagline}.
+      </p>
+      <p>{SITE.domain}</p>
+    </div>
+  </div>
+</footer>

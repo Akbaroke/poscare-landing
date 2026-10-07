@@ -1,0 +1,22 @@
+---
+import LogoMark from './LogoMark.astro';
+
+interface Props {
+  /** `light` for navy text on light backgrounds, `dark` for white text on navy. */
+  tone?: 'light' | 'dark';
+  class?: string;
+}
+const { tone = 'light', class: className } = Astro.props;
+---
+
+<span class:list={['inline-flex items-center gap-2', className]}>
+  <LogoMark class="size-8 shrink-0" />
+  <span
+    class:list={[
+      'text-[19px] leading-none font-extrabold tracking-[0.02em]',
+      tone === 'dark' ? 'text-white' : 'text-navy',
+    ]}
+  >
+    POS<span class="text-orange">CARE</span>
+  </span>
+</span>

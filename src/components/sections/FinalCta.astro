@@ -1,0 +1,26 @@
+---
+import ArrowRight from '@lucide/astro/icons/arrow-right';
+import { mailto } from '../../data/site';
+import LogoMark from '../LogoMark.astro';
+---
+
+<section class="container-page section">
+  <div class="relative overflow-hidden rounded-xl border border-border bg-surface px-6 py-12 text-center shadow-xs sm:px-12 sm:py-16">
+    <span
+      class="absolute inset-x-0 top-0 h-1 bg-linear-to-r from-orange-from to-orange-to"
+      aria-hidden="true"
+    ></span>
+    <LogoMark class="mx-auto size-10" />
+    <h2 class="h2 mx-auto mt-5 max-w-2xl">Kelola bisnis tanpa dibuat rumit.</h2>
+    <p class="lead mx-auto mt-4 max-w-xl">Temukan solusi PosCare yang sesuai dengan bisnis Anda.</p>
+    <div class="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
+      <a href="#solusi" class="btn-primary">
+        Lihat semua solusi
+        <ArrowRight size={18} aria-hidden="true" />
+      </a>
+      <a href={mailto('Pertanyaan tentang PosCare')} class="btn-secondary">
+        Hubungi kami
+      </a>
+    </div>
+  </div>
+</section>

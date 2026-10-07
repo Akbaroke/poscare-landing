@@ -1,0 +1,31 @@
+---
+import Dumbbell from '@lucide/astro/icons/dumbbell';
+import Leaf from '@lucide/astro/icons/leaf';
+import ShoppingBag from '@lucide/astro/icons/shopping-bag';
+import WashingMachine from '@lucide/astro/icons/washing-machine';
+import type { Product } from '../data/products';
+
+interface Props {
+  id: Product['id'];
+  size?: 'sm' | 'md' | 'lg';
+  class?: string;
+}
+const { id, size = 'md', class: className } = Astro.props;
+
+const ICONS = { spa: Leaf, laundry: WashingMachine, sport: Dumbbell, retail: ShoppingBag };
+const TONES = {
+  spa: 'bg-spa-soft text-spa',
+  laundry: 'bg-laundry-soft text-laundry',
+  sport: 'bg-sport-soft text-sport',
+  retail: 'bg-retail-soft text-retail',
+};
+const BOX = { sm: 'size-9 rounded-md', md: 'size-11 rounded-md', lg: 'size-12 rounded-lg' };
+const GLYPH = { sm: 18, md: 22, lg: 24 };
+const Icon = ICONS[id];
+---
+
+<span
+  class:list={['inline-flex shrink-0 items-center justify-center', TONES[id], BOX[size], className]}
+>
+  <Icon size={GLYPH[size]} stroke-width={1.75} aria-hidden="true" />
+</span>

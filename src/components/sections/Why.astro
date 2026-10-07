@@ -1,0 +1,61 @@
+---
+import BarChart3 from '@lucide/astro/icons/chart-column';
+import Layers from '@lucide/astro/icons/layers';
+import MousePointerClick from '@lucide/astro/icons/mouse-pointer-click';
+import QrCode from '@lucide/astro/icons/qr-code';
+import Smartphone from '@lucide/astro/icons/smartphone';
+import Workflow from '@lucide/astro/icons/workflow';
+
+const REASONS = [
+  {
+    icon: Layers,
+    title: 'Satu ekosistem',
+    body: 'Pelanggan, transaksi, pembayaran, dan laporan saling terhubung. Tidak perlu pindah-pindah aplikasi.',
+  },
+  {
+    icon: Smartphone,
+    title: 'Mobile-first',
+    body: 'Jalankan kasir, cek pendapatan, dan pantau bisnis langsung dari HP. Di laptop juga tetap bisa.',
+  },
+  {
+    icon: Workflow,
+    title: 'Sesuai industri',
+    body: 'Alur kerjanya mengikuti jenis usaha Anda, bukan template umum yang dipaksakan.',
+  },
+  {
+    icon: QrCode,
+    title: 'Pembayaran terintegrasi',
+    body: 'QRIS tampil saat checkout, dan status pembayarannya ikut tercatat di transaksi.',
+  },
+  {
+    icon: BarChart3,
+    title: 'Laporan langsung jadi',
+    body: 'Pendapatan dan transaksi harian sampai bulanan tersusun dari kegiatan sehari-hari.',
+  },
+  {
+    icon: MousePointerClick,
+    title: 'Mudah dipakai',
+    body: 'Bahasa sederhana dan langkah singkat. Bisa langsung dipakai tanpa pelatihan panjang.',
+  },
+];
+---
+
+<section id="fitur" class="container-page section">
+  <div class="max-w-2xl">
+    <p class="eyebrow">Kenapa PosCare</p>
+    <h2 class="h2 mt-3">Lengkap secukupnya. Sederhana setiap hari.</h2>
+    <p class="lead mt-4">
+      Kami tidak mengejar fitur sebanyak mungkin, tapi fitur yang memang dipakai.
+    </p>
+  </div>
+
+  <ul class="mt-10 grid border-t border-border sm:grid-cols-2 lg:mt-14 lg:grid-cols-3 [&>li]:border-b [&>li]:border-border">
+    {REASONS.map(({ icon: Icon, title, body }) => (
+      <li class="py-7 sm:pr-8 lg:py-9">
+        <Icon size={22} stroke-width={1.75} class="text-orange" aria-hidden="true" />
+        <h3 class="mt-4 text-lg font-bold">{title}</h3>
+        <p class="mt-2 text-[15px] leading-relaxed text-muted">{body}</p>
+      </li>
+    ))}
+  </ul>
+</section>

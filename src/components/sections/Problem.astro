@@ -1,0 +1,78 @@
+---
+import BarChart3 from '@lucide/astro/icons/chart-column';
+import Check from '@lucide/astro/icons/check';
+import FileSpreadsheet from '@lucide/astro/icons/file-spreadsheet';
+import Landmark from '@lucide/astro/icons/landmark';
+import MessageCircle from '@lucide/astro/icons/message-circle';
+import Smartphone from '@lucide/astro/icons/smartphone';
+import LogoMark from '../LogoMark.astro';
+
+const SCATTERED = [
+  { icon: Smartphone, what: 'Kasir', where: 'di aplikasi A' },
+  { icon: FileSpreadsheet, what: 'Data pelanggan', where: 'di Excel' },
+  { icon: MessageCircle, what: 'Catatan pelanggan', where: 'tersebar di chat WhatsApp' },
+  { icon: Landmark, what: 'Pembayaran', where: 'dicek terpisah' },
+  { icon: BarChart3, what: 'Laporan', where: 'direkap manual' },
+];
+const CONNECTED = ['Kasir', 'Data & catatan pelanggan', 'Pembayaran', 'Laporan'];
+---
+
+<section id="masalah" class="border-y border-border bg-surface">
+  <div class="container-page section">
+    <div class="max-w-2xl">
+      <p class="eyebrow">Masalahnya</p>
+      <h2 class="h2 mt-3">Satu bisnis, terlalu banyak tempat mencatat.</h2>
+      <p class="lead mt-4">
+        Untuk tahu kondisi bisnis hari ini saja, owner harus membuka banyak aplikasi dan mencocokkan
+        datanya sendiri.
+      </p>
+    </div>
+
+    <div class="mt-10 grid gap-4 lg:mt-14 lg:grid-cols-2 lg:gap-6">
+      <div class="rounded-lg border border-dashed border-border-strong bg-bg p-5 sm:p-7">
+        <p class="text-sm font-semibold text-muted">Yang sering terjadi</p>
+        <ul class="mt-4 divide-y divide-border">
+          {SCATTERED.map(({ icon: Icon, what, where }) => (
+            <li class="flex items-center gap-3 py-3">
+              <span class="flex size-9 shrink-0 items-center justify-center rounded-md bg-sunken text-subtle">
+                <Icon size={18} stroke-width={1.75} aria-hidden="true" />
+              </span>
+              <p class="text-[15px]">
+                <span class="font-semibold">{what}</span> <span class="text-muted">{where}</span>
+              </p>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <div class="flex flex-col rounded-lg border border-navy bg-surface p-5 shadow-sm sm:p-7">
+        <div class="flex items-center gap-2">
+          <LogoMark class="size-6" />
+          <p class="text-sm font-semibold">Dengan PosCare</p>
+        </div>
+        <p class="mt-4 text-xl font-bold tracking-tight text-balance sm:text-2xl">
+          Semuanya ada di satu alur, dan bisa dibuka dari HP.
+        </p>
+        <ol class="mt-6 flex flex-1 flex-col">
+          {CONNECTED.map((item, i) => (
+            <li class="relative flex items-center gap-3 pb-5 last:pb-0">
+              {i < CONNECTED.length - 1 && (
+                <span
+                  class="absolute top-8 bottom-0 left-[15px] w-0.5 bg-navy-50"
+                  aria-hidden="true"
+                />
+              )}
+              <span class="relative flex size-8 shrink-0 items-center justify-center rounded-full bg-navy text-white">
+                <Check size={16} stroke-width={2.5} aria-hidden="true" />
+              </span>
+              <span class="text-[15px] font-semibold">{item}</span>
+            </li>
+          ))}
+        </ol>
+        <p class="mt-6 border-t border-border pt-4 text-sm text-muted">
+          Data yang dicatat di satu langkah langsung terpakai di langkah berikutnya.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>

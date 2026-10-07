@@ -1,0 +1,133 @@
+---
+import ArrowRight from '@lucide/astro/icons/arrow-right';
+import ArrowUpRight from '@lucide/astro/icons/arrow-up-right';
+import Plus from '@lucide/astro/icons/plus';
+import { isExternal, PRODUCTS, STATUS_LABEL } from '../../data/products';
+import { mailto } from '../../data/site';
+import ProductIcon from '../ProductIcon.astro';
+
+const STRIPE = {
+  spa: 'bg-spa',
+  laundry: 'bg-laundry',
+  sport: 'bg-sport',
+  retail: 'bg-retail',
+};
+const HOVER_BORDER = {
+  spa: 'hover:border-spa',
+  laundry: 'hover:border-laundry',
+  sport: 'hover:border-sport',
+  retail: 'hover:border-retail',
+};
+const [featured, ...others] = PRODUCTS;
+---
+
+<section id="solusi" class="border-y border-border bg-surface">
+  <div class="container-page section">
+    <div class="flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
+      <div class="max-w-2xl">
+        <p class="eyebrow">Solusi PosCare</p>
+        <h2 class="h2 mt-3">Satu platform. Solusi yang dibuat sesuai bisnis Anda.</h2>
+      </div>
+      <p class="lead max-w-md lg:text-right">
+        Pilih sesuai jenis usaha. Semuanya dibangun di atas fondasi PosCare.
+      </p>
+    </div>
+
+    <ul class="mt-10 grid gap-4 sm:grid-cols-2 lg:mt-14 lg:grid-cols-3">
+      {featured && (
+        <li class="sm:col-span-2 lg:row-span-2 lg:col-span-1">
+          <a
+            href={featured.href}
+            rel="noopener"
+            class="group relative flex h-full flex-col overflow-hidden rounded-lg border-2 border-spa/30 bg-spa-soft/40 p-6 transition-colors hover:border-spa sm:p-8"
+          >
+            <span class="absolute inset-x-0 top-0 h-1 bg-spa" aria-hidden="true" />
+            <div class="flex items-start justify-between gap-4">
+              <ProductIcon id={featured.id} size="lg" />
+              <span class="badge bg-spa text-white">
+                <span class="size-1.5 rounded-full bg-white" aria-hidden="true" />
+                {STATUS_LABEL[featured.status]}
+              </span>
+            </div>
+            <h3 class="mt-6 text-2xl font-bold tracking-tight">{featured.name}</h3>
+            <p class="mt-1 text-sm font-semibold text-spa">{featured.industry}</p>
+            <p class="mt-4 text-[15px] leading-relaxed text-muted">{featured.summary}</p>
+            {featured.audience && (
+              <p class="mt-4 text-sm font-medium text-ink">{featured.audience}</p>
+            )}
+            <div class="mt-8 flex flex-1 items-end">
+              <span class="inline-flex min-h-12 w-full items-center justify-between rounded-md bg-spa-app px-5 font-semibold text-white transition-colors group-hover:bg-navy">
+                {featured.cta}
+                <ArrowUpRight size={18} aria-hidden="true" />
+              </span>
+            </div>
+            <p class="mt-3 text-center text-xs text-muted">spa.poscare.id</p>
+          </a>
+        </li>
+      )}
+
+      {others.map((p) => (
+        <li>
+          <a
+            href={p.href}
+            {...(isExternal(p.href) ? { rel: 'noopener' } : {})}
+            class:list={[
+              'group relative flex h-full flex-col overflow-hidden rounded-lg border border-border bg-surface p-6 shadow-xs transition-colors',
+              HOVER_BORDER[p.id],
+            ]}
+          >
+            <span
+              class:list={['absolute inset-x-0 top-0 h-1 opacity-70', STRIPE[p.id]]}
+              aria-hidden="true"
+            />
+            <div class="flex items-start justify-between gap-4">
+              <ProductIcon id={p.id} />
+              <span class="badge bg-sunken text-muted">{STATUS_LABEL[p.status]}</span>
+            </div>
+            <h3 class="mt-5 text-xl font-bold tracking-tight">{p.name}</h3>
+            <p class="mt-2 flex-1 text-[15px] leading-relaxed text-muted">{p.summary}</p>
+            <span class="mt-6 inline-flex items-center gap-1.5 text-[15px] font-semibold text-ink">
+              {p.cta}
+              <ArrowRight
+                size={16}
+                class="transition-transform group-hover:translate-x-0.5"
+                aria-hidden="true"
+              />
+            </span>
+          </a>
+        </li>
+      ))}
+
+      <li>
+        <a
+          href={mailto(
+            'Solusi untuk bisnis saya',
+            'Halo PosCare, saya punya usaha di bidang: \n\nCara kerja bisnis saya: ',
+          )}
+          class="group flex h-full flex-col rounded-lg border border-dashed border-border-strong p-6 transition-colors hover:border-navy"
+        >
+          <span class="flex size-11 items-center justify-center rounded-md border border-dashed border-border-strong text-muted">
+            <Plus size={22} stroke-width={1.75} aria-hidden="true" />
+          </span>
+          <h3 class="mt-5 text-xl font-bold tracking-tight">Bisnis Anda belum ada di sini?</h3>
+          <p class="mt-2 flex-1 text-[15px] leading-relaxed text-muted">
+            Ceritakan cara kerja bisnis Anda. Solusi berikutnya kami bangun dari kebutuhan nyata.
+          </p>
+          <span class="mt-6 inline-flex items-center gap-1.5 text-[15px] font-semibold">
+            Ceritakan ke kami
+            <ArrowRight
+              size={16}
+              class="transition-transform group-hover:translate-x-0.5"
+              aria-hidden="true"
+            />
+          </span>
+        </a>
+      </li>
+    </ul>
+
+    <p class="mt-6 text-sm text-muted">
+      Setiap solusi: <span class="font-semibold text-ink">Powered by PosCare</span>. Solusi yang
+      masih dalam pengembangan belum bisa dipakai; klik untuk dikabari saat siap.
+    </p>
+  </div>
+</section>

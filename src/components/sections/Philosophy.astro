@@ -1,0 +1,48 @@
+---
+const PRINCIPLES = [
+  { name: 'Simple', body: 'Mudah dipahami sejak hari pertama.' },
+  { name: 'Focused', body: 'Fitur yang dipakai, bukan sekadar banyak.' },
+  { name: 'Industry-specific', body: 'Alur mengikuti jenis usaha.' },
+  { name: 'Mobile-first', body: 'Nyaman dijalankan dari HP.' },
+  { name: 'Useful', body: 'Membantu pekerjaan sehari-hari.' },
+];
+---
+
+<section id="tentang" class="bg-navy text-white">
+  <div class="container-page section">
+    <div class="grid gap-12 lg:grid-cols-[1.2fr_1fr] lg:gap-20">
+      <div>
+        <p class="inline-flex items-center gap-2 text-sm font-semibold text-orange-from">
+          <span class="size-1.5 rounded-full bg-orange-from" aria-hidden="true"></span>
+          Tentang PosCare
+        </p>
+        <h2 class="mt-4 text-3xl font-bold tracking-tight text-balance sm:text-5xl sm:leading-[1.08]">
+          Software seharusnya mengikuti bisnis Anda.
+        </h2>
+        <p class="mt-6 max-w-xl text-base leading-relaxed text-white/75 sm:text-lg">
+          Setiap industri mempunyai workflow yang berbeda. PosCare membangun solusi berdasarkan cara
+          bisnis benar-benar bekerja, bukan memaksa bisnis menyesuaikan diri dengan software.
+        </p>
+        <p class="mt-4 max-w-xl text-base leading-relaxed text-white/75 sm:text-lg">
+          Semua solusi PosCare berdiri di atas fondasi yang sama: pelanggan, transaksi, pembayaran,
+          operasional, dan laporan. Yang berbeda adalah alur dan fitur yang disesuaikan untuk tiap
+          industri.
+        </p>
+      </div>
+
+      <ol class="divide-y divide-white/10 border-y border-white/10 self-start">
+        {PRINCIPLES.map((p, i) => (
+          <li class="flex items-baseline gap-4 py-4">
+            <span class="w-5 text-sm text-white/40 tabular-nums">
+              {String(i + 1).padStart(2, '0')}
+            </span>
+            <div class="flex flex-1 flex-col gap-0.5 sm:flex-row sm:items-baseline sm:justify-between sm:gap-4">
+              <span class="text-lg font-bold">{p.name}</span>
+              <span class="text-sm text-white/65">{p.body}</span>
+            </div>
+          </li>
+        ))}
+      </ol>
+    </div>
+  </div>
+</section>
