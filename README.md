@@ -47,7 +47,10 @@ Ubah entri di `src/data/products.ts`: `status: 'available'`, isi `href` subdomai
   dokumen SpaCare tetap berlaku untuk hal khusus SpaCare). Naikkan `LEGAL_EFFECTIVE_DATE` setiap ada
   perubahan isi. Disarankan ditinjau konsultan hukum sebelum dipakai resmi.
 
-## Deploy
+## Deploy (Cloudflare Pages)
 
-Output statis (`dist/`), cocok untuk Cloudflare Pages: build command `pnpm build`, output
-directory `dist`, Node 22+.
+1. Cloudflare → Workers & Pages → Create → Pages → hubungkan repo `Akbaroke/poscare-landing`.
+2. Production branch: `main`. Framework preset: Astro. Build command: `pnpm build`. Output: `dist`.
+   Versi Node dibaca dari `.node-version` (22).
+3. Custom domains → tambahkan `poscare.id` (dan `www.poscare.id` bila perlu, redirect ke `poscare.id`).
+4. Header keamanan dan cache aset ada di `public/_headers`.
