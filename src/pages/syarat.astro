@@ -1,11 +1,13 @@
 ---
-import { TERMS_INTRO, TERMS_SECTIONS } from '../data/legal/terms';
+import { TERMS_INTRO, TERMS_SECTIONS, TERMS_SUMMARY } from '../data/legal/terms';
 import Legal from '../layouts/Legal.astro';
 ---
 
 <Legal
+  kind="terms"
   title="Syarat & Ketentuan"
   description="Syarat dan ketentuan pemakaian situs poscare.id dan produk PosCare, termasuk masa coba, langganan, dan pembayaran."
   intro={TERMS_INTRO}
+  summary={TERMS_SUMMARY}
   sections={TERMS_SECTIONS}
 />

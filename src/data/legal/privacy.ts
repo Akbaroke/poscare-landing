@@ -2,6 +2,14 @@ import { EMAIL, link, OPERATOR, SPACARE_PRIVACY, WHATSAPP, type LegalSection } f
 
 export const PRIVACY_INTRO = `<p>Kebijakan ini menjelaskan data apa yang dikumpulkan PosCare, untuk apa dipakai, siapa yang menerimanya, dan hak Anda atas data tersebut. PosCare dikelola oleh ${OPERATOR} ("kami").</p>`;
 
+/** Plain-language highlights shown above the full text; the sections below are what applies. */
+export const PRIVACY_SUMMARY: string[] = [
+  'Kami tidak menjual data dan tidak memakai data pelanggan Anda untuk iklan.',
+  'Situs poscare.id tidak memakai cookie atau pelacak pihak ketiga.',
+  'Data pelanggan yang Anda masukkan adalah milik Anda; kami hanya memprosesnya untuk menjalankan layanan.',
+  'Anda bisa meminta salinan, perbaikan, atau penghapusan data kapan saja.',
+];
+
 export const PRIVACY_SECTIONS: LegalSection[] = [
   {
     id: 'cakupan',

@@ -3,6 +3,14 @@ import { EMAIL, link, OPERATOR, SPACARE_TERMS, WHATSAPP, type LegalSection } fro
 
 export const TERMS_INTRO = `<p>Syarat &amp; Ketentuan ini mengatur pemakaian situs poscare.id dan produk PosCare. PosCare dikelola oleh ${OPERATOR} ("kami"). Mohon dibaca sebelum mendaftar.</p>`;
 
+/** Plain-language highlights shown above the full text; the sections below are what applies. */
+export const TERMS_SUMMARY: string[] = [
+  'PosCare adalah penyedia perangkat lunak, bukan bank atau payment gateway.',
+  `SpaCare bisa dicoba gratis ${SPACARE_PRICING.trialDays} hari; langganan tidak diperpanjang otomatis.`,
+  'Data usaha dan data pelanggan Anda tetap milik Anda.',
+  'Hal khusus tiap produk diatur juga di ketentuan produk tersebut.',
+];
+
 export const TERMS_SECTIONS: LegalSection[] = [
   {
     id: 'layanan',
