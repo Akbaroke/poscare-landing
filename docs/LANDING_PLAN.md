@@ -197,7 +197,7 @@ Per section
 | Kartu SpaCare | Buka SpaCare                     | spa.poscare.id/landing  | –                  | –                       |
 | Kartu lain    | Kabari saya                      | WhatsApp (pesan terisi) | –                  | –                       |
 | Kartu terbuka | Ceritakan ke kami                | WhatsApp (pesan terisi) | –                  | –                       |
-| SpaCare       | Explore SpaCare                  | https://spa.poscare.id  | Coba gratis 3 hari | spa.poscare.id/register |
+| SpaCare       | Explore SpaCare                  | spa.poscare.id/landing  | Coba gratis 3 hari | spa.poscare.id/register |
 | Final CTA     | Lihat semua solusi               | `#solusi`               | Hubungi kami       | WhatsApp (pesan terisi) |
 
 Saat vertical lain rilis: ubah `status` di `src/data/products.ts` menjadi `available` dan isi `href`
