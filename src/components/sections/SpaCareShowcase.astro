@@ -7,7 +7,7 @@ import HandHeart from '@lucide/astro/icons/hand-heart';
 import Store from '@lucide/astro/icons/store';
 import Users from '@lucide/astro/icons/users';
 import spacareWordmark from '../../assets/brand/spacare-wordmark.png';
-import { SPACARE_PRICING, SPACARE_REGISTER_URL, SPACARE_URL } from '../../data/site';
+import { SPACARE_LANDING_URL, SPACARE_PRICING, SPACARE_REGISTER_URL } from '../../data/site';
 import QrisScreen from '../mockups/QrisScreen.astro';
 import ReportScreen from '../mockups/ReportScreen.astro';
 import SoapScreen from '../mockups/SoapScreen.astro';
@@ -84,7 +84,11 @@ const FEATURES = [
         </ol>
 
         <div class="mt-8 flex flex-col gap-3 sm:flex-row">
-          <a href={SPACARE_URL} rel="noopener" class="btn bg-spa-app text-white hover:bg-navy">
+          <a
+            href={SPACARE_LANDING_URL}
+            rel="noopener"
+            class="btn bg-spa-app text-white hover:bg-navy"
+          >
             Explore SpaCare
             <ArrowUpRight size={18} aria-hidden="true" />
           </a>

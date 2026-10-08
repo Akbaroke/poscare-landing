@@ -21,6 +21,8 @@ export const SPACARE_PRICING = {
 } as const;
 
 export const SPACARE_URL = 'https://spa.poscare.id';
+/** SpaCare's product page: where every general "go to SpaCare" link points. */
+export const SPACARE_LANDING_URL = `${SPACARE_URL}/landing`;
 export const SPACARE_LOGIN_URL = `${SPACARE_URL}/login`;
 export const SPACARE_REGISTER_URL = `${SPACARE_URL}/register`;
 

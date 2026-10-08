@@ -1,4 +1,4 @@
-import { SPACARE_URL, whatsapp } from './site';
+import { SPACARE_LANDING_URL, whatsapp } from './site';
 
 /**
  * The PosCare product family. When a vertical launches, set `status: 'available'` and its
@@ -28,7 +28,7 @@ export const PRODUCTS: Product[] = [
     summary: 'Solusi untuk bisnis spa, dari data pelanggan dan catatan treatment sampai kasir.',
     audience: 'Baby spa · Mom spa · Spa dewasa · Treatment',
     status: 'available',
-    href: SPACARE_URL,
+    href: SPACARE_LANDING_URL,
     cta: 'Buka SpaCare',
   },
   {

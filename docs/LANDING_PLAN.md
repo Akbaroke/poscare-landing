@@ -81,7 +81,7 @@ karena saat ini satu-satunya produk yang bisa dimasuki adalah SpaCare) · CTA `L
 - Sub: Pilih solusi sesuai jenis usaha. Semuanya dibangun di atas fondasi PosCare.
 - Kartu:
   - **SpaCare** — Solusi untuk bisnis spa. Baby spa, mom spa, spa dewasa, dan bisnis treatment.
-    Badge `Tersedia` · CTA `Buka SpaCare` → spa.poscare.id
+    Badge `Tersedia` · CTA `Buka SpaCare` → spa.poscare.id/landing
   - **LaundryCare** — Solusi operasional untuk bisnis laundry. Badge `Segera hadir` ·
     CTA `Kabari saya` (chat WhatsApp 0851-4490-9320 dengan pesan terisi)
   - **SportCare** — Solusi operasional untuk bisnis olahraga. Badge `Segera hadir` · `Kabari saya`
@@ -127,7 +127,7 @@ karena saat ini satu-satunya produk yang bisa dimasuki adalah SpaCare) · CTA `L
   - **Katalog & reservasi** — Katalog layanan yang bisa dibagikan; pelanggan bisa memesan jadwal.
 - Visual: tiga mockup HP (Pelanggan + SOAP, Checkout QRIS, Laporan) — caption "Ilustrasi tampilan
   SpaCare. Data contoh."
-- CTA: `Explore SpaCare` → spa.poscare.id · sekunder `Coba gratis 3 hari` → spa.poscare.id/register
+- CTA: `Explore SpaCare` → spa.poscare.id/landing · sekunder `Coba gratis 3 hari` → spa.poscare.id/register
 
 ### Filosofi
 
@@ -194,7 +194,7 @@ Per section
 | ------------- | -------------------------------- | ----------------------- | ------------------ | ----------------------- |
 | Navbar        | Lihat solusi                     | `#solusi`               | Masuk              | spa.poscare.id/login    |
 | Hero          | Temukan solusi untuk bisnis Anda | `#solusi`               | Kenali PosCare     | `#pendekatan`           |
-| Kartu SpaCare | Buka SpaCare                     | https://spa.poscare.id  | –                  | –                       |
+| Kartu SpaCare | Buka SpaCare                     | spa.poscare.id/landing  | –                  | –                       |
 | Kartu lain    | Kabari saya                      | WhatsApp (pesan terisi) | –                  | –                       |
 | Kartu terbuka | Ceritakan ke kami                | WhatsApp (pesan terisi) | –                  | –                       |
 | SpaCare       | Explore SpaCare                  | https://spa.poscare.id  | Coba gratis 3 hari | spa.poscare.id/register |
