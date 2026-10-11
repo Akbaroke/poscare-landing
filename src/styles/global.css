@@ -39,6 +39,9 @@
   --color-laundry-soft: #e6f4fe;
   --color-sport: #c7520c;
   --color-sport-soft: #fff1e6;
+  /* SportCare's own primary (AA with white text) and navy, used in its showcase. */
+  --color-sport-app: #d93f0a;
+  --color-sport-navy: #051831;
   --color-retail: #6d3ad6;
   --color-retail-soft: #f1ecfd;
 

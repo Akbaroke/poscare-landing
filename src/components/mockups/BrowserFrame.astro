@@ -1,0 +1,37 @@
+---
+import type { ImageMetadata } from 'astro';
+
+/** A real desktop screenshot under a minimal browser bar showing its address. */
+interface Props {
+  image: ImageMetadata;
+  alt: string;
+  address: string;
+  class?: string;
+}
+const { image, alt, address, class: className } = Astro.props;
+---
+
+<div
+  class:list={[
+    'overflow-hidden rounded-lg border border-border-strong bg-surface shadow-sm',
+    className,
+  ]}
+>
+  <div class="flex h-9 items-center gap-3 border-b border-border bg-sunken px-3" aria-hidden="true">
+    <span class="flex gap-1.5">
+      <span class="size-2.5 rounded-full bg-border-strong"></span>
+      <span class="size-2.5 rounded-full bg-border-strong"></span>
+      <span class="size-2.5 rounded-full bg-border-strong"></span>
+    </span>
+    <span class="truncate rounded-sm bg-surface px-3 py-0.5 text-xs text-muted">{address}</span>
+  </div>
+  <img
+    src={image.src}
+    width={image.width}
+    height={image.height}
+    alt={alt}
+    loading="lazy"
+    decoding="async"
+    class="block h-auto w-full"
+  />
+</div>

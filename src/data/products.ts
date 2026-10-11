@@ -1,4 +1,4 @@
-import { SPACARE_LANDING_URL, whatsapp } from './site';
+import { SPACARE_LANDING_URL, SPORTCARE_LANDING_URL, whatsapp } from './site';
 
 /**
  * The PosCare product family. When a vertical launches, set `status: 'available'` and its
@@ -47,13 +47,12 @@ export const PRODUCTS: Product[] = [
     id: 'sport',
     name: 'SportCare',
     nameParts: ['Sport', 'Care'],
-    industry: 'Bisnis olahraga',
-    summary: 'Solusi operasional untuk bisnis olahraga.',
-    status: 'coming-soon',
-    href: whatsapp(
-      'Halo PosCare, saya tertarik dengan SportCare. Tolong kabari saya saat sudah tersedia. Nama usaha saya: ',
-    ),
-    cta: 'Kabari saya',
+    industry: 'Sport center',
+    summary: 'Solusi untuk sport center, dari booking lapangan dan jadwal sampai kasir.',
+    audience: 'Futsal · Mini soccer · Padel · Badminton · Basket · Tenis',
+    status: 'available',
+    href: SPORTCARE_LANDING_URL,
+    cta: 'Buka SportCare',
   },
   {
     id: 'retail',

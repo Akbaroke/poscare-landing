@@ -1,12 +1,20 @@
 import { SITE, SPACARE_PRICING } from '../site';
-import { EMAIL, link, OPERATOR, SPACARE_TERMS, WHATSAPP, type LegalSection } from '.';
+import {
+  EMAIL,
+  link,
+  OPERATOR,
+  SPACARE_TERMS,
+  SPORTCARE_TERMS,
+  WHATSAPP,
+  type LegalSection,
+} from '.';
 
 export const TERMS_INTRO = `<p>Syarat &amp; Ketentuan ini mengatur pemakaian situs poscare.id dan produk PosCare. PosCare dikelola oleh ${OPERATOR} ("kami"). Mohon dibaca sebelum mendaftar.</p>`;
 
 /** Plain-language highlights shown above the full text; the sections below are what applies. */
 export const TERMS_SUMMARY: string[] = [
   'PosCare adalah penyedia perangkat lunak, bukan bank atau payment gateway.',
-  `SpaCare bisa dicoba gratis ${SPACARE_PRICING.trialDays} hari; langganan tidak diperpanjang otomatis.`,
+  `SpaCare bisa dicoba gratis ${SPACARE_PRICING.trialDays} hari, SportCare juga punya coba gratis; langganan tidak diperpanjang otomatis.`,
   'Data usaha dan data pelanggan Anda tetap milik Anda.',
   'Hal khusus tiap produk diatur juga di ketentuan produk tersebut.',
 ];
@@ -15,14 +23,14 @@ export const TERMS_SECTIONS: LegalSection[] = [
   {
     id: 'layanan',
     title: 'Tentang PosCare',
-    html: `<p>PosCare adalah platform operasional bisnis. Di atas fondasi yang sama (pelanggan, transaksi, pembayaran, dan laporan), PosCare menyediakan produk khusus untuk tiap jenis usaha. Saat ini yang tersedia adalah SpaCare (spa.poscare.id); LaundryCare, SportCare, dan RetailCare segera hadir.</p>
+    html: `<p>PosCare adalah platform operasional bisnis. Di atas fondasi yang sama (pelanggan, transaksi, pembayaran, dan laporan), PosCare menyediakan produk khusus untuk tiap jenis usaha. Saat ini yang tersedia adalah SpaCare (spa.poscare.id) dan SportCare (sport.poscare.id); LaundryCare dan RetailCare segera hadir.</p>
 <p>PosCare adalah penyedia perangkat lunak. PosCare bukan bank, bukan payment gateway, dan bukan lembaga keuangan.</p>
 <p>Dengan mendaftar atau memakai produk PosCare, Anda menyetujui Syarat &amp; Ketentuan ini dan ${link('/privasi', 'Kebijakan Privasi')}. Bila tidak setuju, mohon tidak memakai layanan ini.</p>`,
   },
   {
     id: 'produk',
     title: 'Ketentuan khusus produk',
-    html: `<p>Setiap produk dapat memiliki ketentuan tambahan yang mengatur fitur khususnya. Untuk SpaCare, baca ${SPACARE_TERMS}. Bila ada perbedaan, ketentuan produk yang berlaku untuk pemakaian produk itu.</p>`,
+    html: `<p>Setiap produk dapat memiliki ketentuan tambahan yang mengatur fitur khususnya. Baca ${SPACARE_TERMS} dan ${SPORTCARE_TERMS}. Bila ada perbedaan, ketentuan produk yang berlaku untuk pemakaian produk itu.</p>`,
   },
   {
     id: 'situs',
@@ -48,7 +56,7 @@ export const TERMS_SECTIONS: LegalSection[] = [
     title: 'Masa coba, langganan, dan pembayaran',
     html: `<ul>
   <li>Produk PosCare dipakai dengan langganan. Paket, harga, dan masa aktif ditampilkan di aplikasi sebelum Anda membayar. Sebagai contoh, SpaCare tersedia mulai ${SPACARE_PRICING.fromMonthly} per bulan.</li>
-  <li>Owner baru dapat memakai masa coba gratis sesuai yang ditawarkan di produk (untuk SpaCare, ${SPACARE_PRICING.trialDays} hari) tanpa perlu membayar di awal. Setelah masa coba berakhir, pemakaian memerlukan langganan aktif.</li>
+  <li>Owner baru dapat memakai masa coba gratis sesuai yang ditawarkan di produk (untuk SpaCare ${SPACARE_PRICING.trialDays} hari; untuk SportCare sesuai yang tertera di sport.poscare.id) tanpa perlu membayar di awal. Setelah masa coba berakhir, pemakaian memerlukan langganan aktif.</li>
   <li>Langganan tidak diperpanjang otomatis; Anda memperpanjang sendiri sebelum masa aktif habis. Setelah masa aktif dan masa tenggang yang ditampilkan di aplikasi habis, aplikasi terkunci sampai langganan diperpanjang. Data Anda tetap tersimpan.</li>
   <li>Kami dapat mengubah harga paket. Perubahan tidak berlaku untuk masa aktif yang sudah dibayar.</li>
   <li>Pembayaran langganan tidak dapat dikembalikan, kecuali terjadi pembayaran ganda atau kesalahan sistem dari pihak kami. Ajukan lewat ${EMAIL}.</li>

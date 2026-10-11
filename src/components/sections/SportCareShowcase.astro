@@ -1,0 +1,179 @@
+---
+import ArrowUpRight from '@lucide/astro/icons/arrow-up-right';
+import CalendarCheck from '@lucide/astro/icons/calendar-check';
+import ChartColumn from '@lucide/astro/icons/chart-column';
+import Globe from '@lucide/astro/icons/globe';
+import MessageCircle from '@lucide/astro/icons/message-circle';
+import QrCode from '@lucide/astro/icons/qr-code';
+import ScanLine from '@lucide/astro/icons/scan-line';
+import confirmedPhone from '../../assets/sportcare/confirmed-phone.webp';
+import qrisPhone from '../../assets/sportcare/qris-phone.webp';
+import scheduleDesktop from '../../assets/sportcare/schedule-desktop.webp';
+import slotsPhone from '../../assets/sportcare/slots-phone.webp';
+import venuePhone from '../../assets/sportcare/venue-phone.webp';
+import { SPORTCARE_LANDING_URL, SPORTCARE_REGISTER_URL } from '../../data/site';
+import ProductWordmark from '../ProductWordmark.astro';
+import BrowserFrame from '../mockups/BrowserFrame.astro';
+import ScreenshotPhone from '../mockups/ScreenshotPhone.astro';
+
+const FLOW = ['Link venue', 'Pilih jam', 'Bayar DP QRIS', 'Terkonfirmasi', 'Check-in', 'Laporan'];
+
+// Features as SportCare describes them on sport.poscare.id.
+const FEATURES = [
+  {
+    icon: CalendarCheck,
+    title: 'Jadwal tanpa bentrok',
+    body: 'Satu jam hanya bisa dipesan sekali, juga saat dua pelanggan memesan bersamaan.',
+  },
+  {
+    icon: Globe,
+    title: 'Halaman venue sendiri',
+    body: 'Pelanggan melihat lapangan, harga per jam, dan jam kosong, lalu booking tanpa akun.',
+  },
+  {
+    icon: QrCode,
+    title: 'DP dan pelunasan QRIS',
+    body: 'Status booking berubah sendiri begitu pembayaran DP masuk.',
+  },
+  {
+    icon: MessageCircle,
+    title: 'WhatsApp otomatis',
+    body: 'Konfirmasi, link bayar DP, dan pengingat sebelum main terkirim ke pelanggan.',
+  },
+  {
+    icon: ScanLine,
+    title: 'Kasir',
+    body: 'Sewa lapangan, minuman, dan perlengkapan dalam satu transaksi, tunai atau QRIS.',
+  },
+  {
+    icon: ChartColumn,
+    title: 'Laporan okupansi',
+    body: 'Jam ramai dan sepi per lapangan, pendapatan, dan produk terlaris.',
+  },
+];
+
+const STEPS = [
+  {
+    image: venuePhone,
+    label: 'Buka link venue',
+    alt: 'Halaman venue di HP pelanggan: daftar lapangan dan harga per jam.',
+  },
+  {
+    image: slotsPhone,
+    label: 'Pilih tanggal dan jam',
+    alt: 'Pilihan tanggal dan jam: jam yang sudah dipesan dicoret.',
+  },
+  {
+    image: qrisPhone,
+    label: 'Bayar DP lewat QRIS',
+    alt: 'Kode QRIS untuk membayar DP booking dengan batas waktu.',
+  },
+  {
+    image: confirmedPhone,
+    label: 'Booking terkonfirmasi',
+    alt: 'Booking terkonfirmasi dengan kode booking setelah DP diterima.',
+  },
+];
+---
+
+<section id="sportcare" class="bg-sport-soft/60">
+  <div class="container-page section">
+    <div class="grid gap-10 lg:grid-cols-2 lg:gap-16">
+      <div>
+        <div class="flex flex-wrap items-center gap-3">
+          <ProductWordmark id="sport" name="SportCare" height={32} />
+          <span class="badge border border-sport/30 bg-surface text-sport">Powered by PosCare</span>
+        </div>
+        <h2 class="h2 mt-6">Sekarang juga untuk sport center.</h2>
+        <p class="lead mt-4">
+          SportCare membawa fondasi yang sama ke booking lapangan. Pelanggan booking sendiri dari
+          link venue dan membayar DP lewat QRIS; owner melihat jadwal penuh tanpa bentrok, dari HP,
+          tablet, atau laptop.
+        </p>
+
+        <ol class="mt-6 flex flex-wrap items-center gap-x-1.5 gap-y-2 text-sm font-semibold">
+          {FLOW.map((step, i) => (
+            <li class="flex items-center gap-1.5">
+              <span class="rounded-sm bg-surface px-2 py-1 text-sport-navy ring-1 ring-sport/20">
+                {step}
+              </span>
+              {i < FLOW.length - 1 && (
+                <span class="text-sport" aria-hidden="true">
+                  →
+                </span>
+              )}
+            </li>
+          ))}
+        </ol>
+
+        <div class="mt-8 flex flex-col gap-3 sm:flex-row">
+          <a
+            href={SPORTCARE_LANDING_URL}
+            rel="noopener"
+            class="btn bg-sport-navy text-white hover:bg-navy-700"
+          >
+            Explore SportCare
+            <ArrowUpRight size={18} aria-hidden="true" />
+          </a>
+          <a href={SPORTCARE_REGISTER_URL} rel="noopener" class="btn-secondary">
+            Coba gratis
+          </a>
+        </div>
+        <p class="mt-4 text-sm text-muted">
+          Paket dan lama coba gratis tertera di sport.poscare.id.
+        </p>
+      </div>
+
+      <div>
+        <ul class="grid gap-x-6 gap-y-6 sm:grid-cols-2">
+          {FEATURES.map(({ icon: Icon, title, body }) => (
+            <li class="flex gap-3">
+              <span class="flex size-9 shrink-0 items-center justify-center rounded-md bg-surface text-sport ring-1 ring-sport/15">
+                <Icon size={18} stroke-width={1.75} aria-hidden="true" />
+              </span>
+              <div>
+                <h3 class="text-[15px] font-bold">{title}</h3>
+                <p class="mt-0.5 text-sm leading-relaxed text-muted">{body}</p>
+              </div>
+            </li>
+          ))}
+        </ul>
+        <p class="mt-6 border-t border-sport/15 pt-4 text-[13px] text-muted">
+          Untuk futsal, mini soccer, padel, badminton, basket, tenis, voli, pickleball, dan tenis
+          meja.
+        </p>
+      </div>
+    </div>
+
+    <!-- Real screens: the owner's schedule, then the customer's booking on a phone. -->
+    <div class="mt-12 rounded-xl border border-sport/15 bg-surface/70 p-4 sm:p-6 lg:mt-16 lg:p-8">
+      <p class="text-sm font-semibold text-ink">Jadwal owner</p>
+      <BrowserFrame
+        class="mt-3"
+        image={scheduleDesktop}
+        address="sport.poscare.id/app/schedule"
+        alt="Jadwal hari ini di SportCare: empat lapangan dengan booking dari sore sampai malam."
+      />
+
+      <p class="mt-10 text-sm font-semibold text-ink">Booking dari HP pelanggan</p>
+      <ol
+        class="-mx-4 mt-3 flex snap-x snap-mandatory gap-4 overflow-x-auto px-4 pb-2 sm:-mx-6 sm:px-6 lg:mx-0 lg:grid lg:grid-cols-4 lg:overflow-visible lg:px-0"
+        tabindex="0"
+        aria-label="Alur booking pelanggan. Geser untuk melihat langkah berikutnya."
+      >
+        {STEPS.map((s, i) => (
+          <li class="flex shrink-0 snap-center flex-col items-center gap-3">
+            <ScreenshotPhone image={s.image} alt={s.alt} />
+            <p class="text-center text-sm font-semibold">
+              <span class="mr-1.5 text-sport tabular-nums">{i + 1}</span>
+              {s.label}
+            </p>
+          </li>
+        ))}
+      </ol>
+      <p class="mt-4 text-center text-xs text-muted">
+        Tampilan asli SportCare dengan venue dan nama contoh.
+      </p>
+    </div>
+  </div>
+</section>

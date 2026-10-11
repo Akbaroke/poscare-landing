@@ -2,7 +2,7 @@
 import ArrowRight from '@lucide/astro/icons/arrow-right';
 import ArrowUpRight from '@lucide/astro/icons/arrow-up-right';
 import Plus from '@lucide/astro/icons/plus';
-import { isExternal, PRODUCTS, STATUS_LABEL } from '../../data/products';
+import { isExternal, PRODUCTS, STATUS_LABEL, type Product } from '../../data/products';
 import { SPACARE_PRICING, whatsapp } from '../../data/site';
 import ProductIcon from '../ProductIcon.astro';
 import ProductWordmark from '../ProductWordmark.astro';
@@ -19,7 +19,41 @@ const HOVER_BORDER = {
   sport: 'hover:border-sport',
   retail: 'hover:border-retail',
 };
-const [featured, ...others] = PRODUCTS;
+/** Look of a live product's card: its own identity colours. */
+const LIVE_TONE: Partial<
+  Record<Product['id'], { card: string; text: string; badge: string; cta: string; line: string }>
+> = {
+  spa: {
+    card: 'border-spa/30 bg-spa-soft/40 hover:border-spa',
+    text: 'text-spa',
+    badge: 'bg-spa text-white',
+    cta: 'bg-spa-app',
+    line: 'border-spa/20',
+  },
+  sport: {
+    card: 'border-sport/25 bg-sport-soft/50 hover:border-sport',
+    text: 'text-sport',
+    badge: 'bg-sport-app text-white',
+    cta: 'bg-sport-navy',
+    line: 'border-sport/20',
+  },
+};
+const NEUTRAL_TONE = {
+  card: 'border-border-strong bg-surface hover:border-navy',
+  text: 'text-ink',
+  badge: 'bg-navy text-white',
+  cta: 'bg-navy',
+  line: 'border-border',
+};
+/** Short offer line under a live product; only facts that are fixed. */
+const OFFER: Partial<Record<Product['id'], string>> = {
+  spa: `Mulai ${SPACARE_PRICING.fromMonthly}/bulan · Coba gratis ${SPACARE_PRICING.trialDays} hari`,
+  sport: 'Coba gratis untuk venue baru · Paket di sport.poscare.id',
+};
+
+const live = PRODUCTS.filter((p) => p.status === 'available');
+const upcoming = PRODUCTS.filter((p) => p.status !== 'available');
+const host = (href: string) => href.replace(/^https?:\/\//, '');
 ---
 
 <section id="solusi" class="border-y border-border bg-surface">
@@ -34,46 +68,63 @@ const [featured, ...others] = PRODUCTS;
       </p>
     </div>
 
-    <ul class="mt-10 grid gap-4 sm:grid-cols-2 lg:mt-14 lg:grid-cols-3">
-      {featured && (
-        <li class="sm:col-span-2 lg:row-span-2 lg:col-span-1">
-          <a
-            href={featured.href}
-            rel="noopener"
-            class="group relative flex h-full flex-col overflow-hidden rounded-lg border-2 border-spa/30 bg-spa-soft/40 p-6 transition-colors hover:border-spa sm:p-8"
-          >
-            <span class="absolute inset-x-0 top-0 h-1 bg-spa" aria-hidden="true" />
-            <div class="flex items-start justify-between gap-4">
-              <ProductIcon id={featured.id} size="lg" />
-              <span class="badge bg-spa text-white">
-                <span class="size-1.5 rounded-full bg-white" aria-hidden="true" />
-                {STATUS_LABEL[featured.status]}
-              </span>
-            </div>
-            <h3 class="mt-6">
-              <ProductWordmark id={featured.id} name={featured.name} height={32} />
-            </h3>
-            <p class="mt-1 text-sm font-semibold text-spa">{featured.industry}</p>
-            <p class="mt-4 text-[15px] leading-relaxed text-muted">{featured.summary}</p>
-            {featured.audience && (
-              <p class="mt-4 text-sm font-medium text-ink">{featured.audience}</p>
-            )}
-            <p class="mt-6 border-t border-spa/20 pt-4 text-sm text-muted">
-              Mulai <span class="text-lg font-bold text-ink">{SPACARE_PRICING.fromMonthly}</span>
-              /bulan · Coba gratis {SPACARE_PRICING.trialDays} hari
-            </p>
-            <div class="mt-8 flex flex-1 items-end">
-              <span class="inline-flex min-h-12 w-full items-center justify-between rounded-md bg-spa-app px-5 font-semibold text-white transition-colors group-hover:bg-navy">
-                {featured.cta}
-                <ArrowUpRight size={18} aria-hidden="true" />
-              </span>
-            </div>
-            <p class="mt-3 text-center text-xs text-muted">spa.poscare.id/landing</p>
-          </a>
-        </li>
-      )}
+    <!-- Products you can use today -->
+    <ul class:list={['mt-10 grid gap-4 lg:mt-14', live.length > 1 && 'md:grid-cols-2']}>
+      {live.map((p) => {
+        const tone = LIVE_TONE[p.id] ?? NEUTRAL_TONE;
+        return (
+          <li>
+            <a
+              href={p.href}
+              {...(isExternal(p.href) ? { rel: 'noopener' } : {})}
+              class:list={[
+                'group relative flex h-full flex-col overflow-hidden rounded-lg border-2 p-6 transition-colors sm:p-8',
+                tone.card,
+              ]}
+            >
+              <span
+                class:list={['absolute inset-x-0 top-0 h-1', STRIPE[p.id]]}
+                aria-hidden="true"
+              />
+              <div class="flex items-start justify-between gap-4">
+                <ProductIcon id={p.id} size="lg" />
+                <span class:list={['badge', tone.badge]}>
+                  <span class="size-1.5 rounded-full bg-white" aria-hidden="true" />
+                  {STATUS_LABEL[p.status]}
+                </span>
+              </div>
+              <h3 class="mt-6">
+                <ProductWordmark id={p.id} name={p.name} height={32} />
+              </h3>
+              <p class:list={['mt-1 text-sm font-semibold', tone.text]}>{p.industry}</p>
+              <p class="mt-4 text-[15px] leading-relaxed text-muted">{p.summary}</p>
+              {p.audience && <p class="mt-4 text-sm font-medium text-ink">{p.audience}</p>}
+              {OFFER[p.id] && (
+                <p class:list={['mt-6 border-t pt-4 text-sm font-medium text-ink', tone.line]}>
+                  {OFFER[p.id]}
+                </p>
+              )}
+              <div class="mt-8 flex flex-1 items-end">
+                <span
+                  class:list={[
+                    'inline-flex min-h-12 w-full items-center justify-between rounded-md px-5 font-semibold text-white transition-colors group-hover:bg-navy',
+                    tone.cta,
+                  ]}
+                >
+                  {p.cta}
+                  <ArrowUpRight size={18} aria-hidden="true" />
+                </span>
+              </div>
+              <p class="mt-3 text-center text-xs text-muted">{host(p.href)}</p>
+            </a>
+          </li>
+        );
+      })}
+    </ul>
 
-      {others.map((p) => (
+    <!-- Coming soon, plus an open invitation -->
+    <ul class="mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+      {upcoming.map((p) => (
         <li>
           <a
             href={p.href}
@@ -133,7 +184,8 @@ const [featured, ...others] = PRODUCTS;
 
     <p class="mt-6 text-sm text-muted">
       Setiap solusi: <span class="font-semibold text-ink">Powered by PosCare</span>. Saat ini yang
-      sudah bisa dipakai adalah SpaCare; solusi lain segera hadir, klik untuk dikabari saat siap.
+      sudah bisa dipakai adalah {live.map((p) => p.name).join(' dan ')}; solusi lain segera hadir,
+      klik untuk dikabari saat siap.
     </p>
   </div>
 </section>

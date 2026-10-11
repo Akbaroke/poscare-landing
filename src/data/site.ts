@@ -26,6 +26,12 @@ export const SPACARE_LANDING_URL = `${SPACARE_URL}/landing`;
 export const SPACARE_LOGIN_URL = `${SPACARE_URL}/login`;
 export const SPACARE_REGISTER_URL = `${SPACARE_URL}/register`;
 
+export const SPORTCARE_URL = 'https://sport.poscare.id';
+/** SportCare's product page is its root. */
+export const SPORTCARE_LANDING_URL = SPORTCARE_URL;
+export const SPORTCARE_LOGIN_URL = `${SPORTCARE_URL}/login`;
+export const SPORTCARE_REGISTER_URL = `${SPORTCARE_URL}/register`;
+
 /** WhatsApp chat with a prefilled message: the main contact channel for owners. */
 export function whatsapp(text: string): string {
   return `https://wa.me/${SITE.whatsapp}?text=${encodeURIComponent(text)}`;

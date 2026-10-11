@@ -2,15 +2,23 @@
 import ArrowUpRight from '@lucide/astro/icons/arrow-up-right';
 import Menu from '@lucide/astro/icons/menu';
 import X from '@lucide/astro/icons/x';
-import { SPACARE_LOGIN_URL } from '../data/site';
+import ChevronDown from '@lucide/astro/icons/chevron-down';
+import { SPACARE_LOGIN_URL, SPORTCARE_LOGIN_URL } from '../data/site';
 import Logo from './Logo.astro';
 
 const LINKS = [
   { href: '/#solusi', label: 'Solusi' },
   { href: '/#cara-kerja', label: 'Cara kerja' },
   { href: '/#spacare', label: 'SpaCare' },
+  { href: '/#sportcare', label: 'SportCare' },
   { href: '/#tentang', label: 'Tentang' },
   { href: '/#faq', label: 'FAQ' },
+];
+
+// Each product has its own account; "Masuk" asks which one.
+const LOGINS = [
+  { href: SPACARE_LOGIN_URL, label: 'Masuk ke SpaCare' },
+  { href: SPORTCARE_LOGIN_URL, label: 'Masuk ke SportCare' },
 ];
 ---
 
@@ -34,9 +42,30 @@ const LINKS = [
     </ul>
 
     <div class="hidden items-center gap-2 lg:flex">
-      <a href={SPACARE_LOGIN_URL} class="btn-ghost min-h-10 text-[15px]">
-        Masuk
-      </a>
+      <details class="group/login relative" data-login-menu>
+        <summary class="btn-ghost min-h-10 cursor-pointer list-none text-[15px] [&::-webkit-details-marker]:hidden">
+          Masuk
+          <ChevronDown
+            size={16}
+            class="text-subtle transition-transform group-open/login:rotate-180"
+            aria-hidden="true"
+          />
+        </summary>
+        <ul class="absolute right-0 mt-2 w-56 rounded-lg border border-border bg-surface p-1.5 shadow-sm">
+          {LOGINS.map((l) => (
+            <li>
+              <a
+                href={l.href}
+                rel="noopener"
+                class="flex min-h-11 items-center justify-between rounded-md px-3 text-[15px] font-medium hover:bg-sunken"
+              >
+                {l.label}
+                <ArrowUpRight size={16} class="text-subtle" aria-hidden="true" />
+              </a>
+            </li>
+          ))}
+        </ul>
+      </details>
       <a href="/#solusi" class="btn-primary min-h-10">
         Lihat solusi
       </a>
@@ -65,15 +94,21 @@ const LINKS = [
               </a>
             </li>
           ))}
-          <li>
-            <a
-              href={SPACARE_LOGIN_URL}
-              class="flex min-h-12 items-center justify-between text-base font-medium"
-            >
-              Masuk ke SpaCare
-              <ArrowUpRight size={18} class="text-subtle" aria-hidden="true" />
-            </a>
-          </li>
+          {LOGINS.map((l, i) => (
+            <li>
+              <a
+                href={l.href}
+                rel="noopener"
+                class:list={[
+                  'flex min-h-12 items-center justify-between text-base font-medium',
+                  i < LOGINS.length - 1 && 'border-b border-border',
+                ]}
+              >
+                {l.label}
+                <ArrowUpRight size={18} class="text-subtle" aria-hidden="true" />
+              </a>
+            </li>
+          ))}
         </ul>
         <div class="container-page pt-1 pb-4">
           <a href="/#solusi" class="btn-primary w-full">
@@ -91,7 +126,14 @@ const LINKS = [
   menu
     ?.querySelectorAll('a')
     .forEach((a) => a.addEventListener('click', () => (menu.open = false)));
+  // Desktop "Masuk" dropdown: close on Escape or a click outside it.
+  const login = document.querySelector<HTMLDetailsElement>('[data-login-menu]');
   document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && menu?.open) menu.open = false;
+    if (e.key !== 'Escape') return;
+    if (menu?.open) menu.open = false;
+    if (login?.open) login.open = false;
+  });
+  document.addEventListener('click', (e) => {
+    if (login?.open && !login.contains(e.target as Node)) login.open = false;
   });
 </script>

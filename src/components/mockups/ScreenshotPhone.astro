@@ -1,0 +1,28 @@
+---
+import type { ImageMetadata } from 'astro';
+
+/** A real app screenshot in a plain phone frame. */
+interface Props {
+  image: ImageMetadata;
+  alt: string;
+  class?: string;
+}
+const { image, alt, class: className } = Astro.props;
+---
+
+<div
+  class:list={[
+    'w-[220px] shrink-0 rounded-[30px] bg-sport-navy p-1.5 shadow-sm sm:w-[236px]',
+    className,
+  ]}
+>
+  <img
+    src={image.src}
+    width={image.width}
+    height={image.height}
+    alt={alt}
+    loading="lazy"
+    decoding="async"
+    class="block h-auto w-full rounded-[24px]"
+  />
+</div>

@@ -218,3 +218,19 @@ subdomainnya. Kartu, footer, dan diagram hero ikut berubah.
 - Tombol WhatsApp mengambang di pojok kanan bawah.
 - **Kontak**: WhatsApp 0851-4490-9320 (kanal utama untuk CTA) dan `support@poscare.id`.
 - Tidak ada angka pengguna, testimoni, atau logo partner.
+
+---
+
+## Pembaruan 11 Oktober 2026: SportCare tersedia
+
+- SportCare berstatus **Tersedia**, tautan umum ke `https://sport.poscare.id` (landing-nya di root),
+  Masuk ke `/login`, Coba gratis ke `/register`.
+- Kartu solusi: produk yang tersedia tampil sebagai kartu besar berdampingan; yang segera hadir di
+  bawahnya.
+- Section baru `#sportcare` ("Sekarang juga untuk sport center.") setelah SpaCare, memakai
+  screenshot asli SportCare (venue dan nama contoh) dari repo `Akbaroke/sportcare`
+  (`apps/web/src/features/landing/assets`). Fitur diambil dari landing SportCare.
+- Harga dan lama coba gratis SportCare **tidak** ditulis karena diatur admin; landing merujuk ke
+  sport.poscare.id.
+- Navbar: "Masuk" menjadi pilihan SpaCare / SportCare. FAQ dan dokumen legal diperbarui
+  (`LEGAL_EFFECTIVE_DATE` 2026-10-11).

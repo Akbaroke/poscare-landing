@@ -2,27 +2,31 @@
 import ChevronDown from '@lucide/astro/icons/chevron-down';
 import { SITE, SPACARE_PRICING, whatsapp } from '../../data/site';
 
-/** Answers use only confirmed facts; keep them in sync with SpaCare's plans. */
+/** Answers use only confirmed facts; keep them in sync with SpaCare's and SportCare's plans. */
 const FAQS = [
   {
     q: 'Apa itu PosCare?',
-    a: 'PosCare adalah platform operasional bisnis. Di atas fondasi yang sama (pelanggan, transaksi, pembayaran, dan laporan), PosCare membuat solusi khusus untuk tiap jenis usaha, seperti SpaCare untuk bisnis spa.',
+    a: 'PosCare adalah platform operasional bisnis. Di atas fondasi yang sama (pelanggan, transaksi, pembayaran, dan laporan), PosCare membuat solusi khusus untuk tiap jenis usaha, seperti SpaCare untuk bisnis spa dan SportCare untuk sport center.',
   },
   {
     q: 'Solusi apa yang sudah bisa dipakai?',
-    a: 'Saat ini SpaCare, untuk baby spa, mom spa, spa dewasa, dan bisnis treatment, di spa.poscare.id. LaundryCare, SportCare, dan RetailCare segera hadir.',
+    a: 'SpaCare untuk baby spa, mom spa, spa dewasa, dan bisnis treatment (spa.poscare.id), dan SportCare untuk sport center: booking lapangan, jadwal, dan kasir (sport.poscare.id). LaundryCare dan RetailCare segera hadir.',
   },
   {
     q: 'Berapa biaya SpaCare?',
     a: `Mulai ${SPACARE_PRICING.fromMonthly} per bulan. Tersedia paket bulanan, 3 bulan, dan tahunan.`,
   },
   {
+    q: 'Berapa biaya SportCare?',
+    a: 'Paket SportCare dan harganya tertera di sport.poscare.id, dan bisa dibayar dengan QRIS.',
+  },
+  {
     q: 'Apakah bisa dicoba dulu?',
-    a: `Bisa. Owner baru bisa coba gratis ${SPACARE_PRICING.trialDays} hari tanpa perlu bayar di awal. Daftar langsung di spa.poscare.id.`,
+    a: `Bisa. SpaCare bisa dicoba gratis ${SPACARE_PRICING.trialDays} hari tanpa perlu bayar di awal. SportCare juga punya coba gratis untuk venue baru; lamanya tertera di sport.poscare.id.`,
   },
   {
     q: 'Perlu install aplikasi?',
-    a: 'Tidak wajib. SpaCare dibuka dari browser di HP atau laptop, dan bisa dipasang ke layar utama HP supaya terasa seperti aplikasi.',
+    a: 'Tidak wajib. SpaCare dan SportCare dibuka dari browser di HP, tablet, atau laptop, dan bisa dipasang ke layar utama HP supaya terasa seperti aplikasi. Pelanggan SportCare booking lewat link venue tanpa memasang apa pun.',
   },
   {
     q: 'Bagaimana pembayaran QRIS-nya?',

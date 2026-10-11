@@ -65,8 +65,8 @@ Bukan membuat fitur sebanyak mungkin, tetapi fitur yang memang dibutuhkan bisnis
 | Produk          | Untuk                                               | Status       | Tautan                                                   |
 | --------------- | --------------------------------------------------- | ------------ | -------------------------------------------------------- |
 | **SpaCare**     | Baby spa, mom spa, spa dewasa, dan bisnis treatment | Tersedia     | [spa.poscare.id/landing](https://spa.poscare.id/landing) |
+| **SportCare**   | Sport center: booking lapangan, jadwal, dan kasir   | Tersedia     | [sport.poscare.id](https://sport.poscare.id)             |
 | **LaundryCare** | Bisnis laundry                                      | Segera hadir | –                                                        |
-| **SportCare**   | Bisnis olahraga: lapangan, gym, sport center        | Segera hadir | –                                                        |
 | **RetailCare**  | Bisnis retail                                       | Segera hadir | –                                                        |
 
 Semua produk _Powered by PosCare_: memakai fondasi yang sama (pelanggan, transaksi, pembayaran,
@@ -83,6 +83,19 @@ Pelanggan → Treatment → Catatan & SOAP → Kasir → QRIS → Laporan
 Fiturnya antara lain data pelanggan dewasa dan anak, catatan treatment dengan format SOAP, layanan
 dan produk beserta stok, kasir dengan cash dan QRIS, laporan harian sampai bulanan, serta katalog
 layanan dan reservasi online. Mulai Rp29.000 per bulan, dengan coba gratis 3 hari.
+
+### SportCare, untuk sport center
+
+SportCare membawa fondasi yang sama ke booking lapangan:
+
+```
+Link venue → Pilih jam → Bayar DP QRIS → Terkonfirmasi → Check-in → Laporan
+```
+
+Pelanggan booking sendiri dari halaman venue tanpa membuat akun dan membayar DP lewat QRIS. Owner
+mendapat jadwal tanpa bentrok, WhatsApp otomatis (konfirmasi, link bayar DP, pengingat), kasir, dan
+laporan okupansi. Untuk futsal, mini soccer, padel, badminton, basket, tenis, voli, pickleball, dan
+tenis meja. Paket dan coba gratis tertera di sport.poscare.id.
 
 ## Yang bukan PosCare
 

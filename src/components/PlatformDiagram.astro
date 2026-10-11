@@ -20,8 +20,8 @@ const FOUNDATION = [
 <figure class="card p-4 sm:p-6" aria-labelledby="diagram-caption">
   <figcaption id="diagram-caption" class="sr-only">
     PosCare sebagai platform induk dengan fondasi pelanggan, produk dan layanan, transaksi,
-    pembayaran, dan laporan. Di atasnya ada SpaCare (tersedia), LaundryCare, SportCare, dan
-    RetailCare (segera hadir).
+    pembayaran, dan laporan. Di atasnya ada
+    {PRODUCTS.map((p) => `${p.name} (${STATUS_LABEL[p.status].toLowerCase()})`).join(', ')}.
   </figcaption>
 
   <!-- Parent platform -->
@@ -67,8 +67,8 @@ const FOUNDATION = [
             class:list={[
               'flex h-full flex-col items-center gap-2 rounded-md border px-1 py-3 text-center transition-colors sm:px-2',
               live
-                ? 'border-spa/40 bg-spa-soft/50 hover:border-spa'
-                : 'border-border hover:border-border-strong',
+                ? 'border-border-strong bg-surface hover:border-navy'
+                : 'border-dashed border-border opacity-80 hover:border-border-strong hover:opacity-100',
             ]}
           >
             <ProductIcon id={p.id} size="sm" />

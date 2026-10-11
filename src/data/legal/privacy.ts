@@ -1,4 +1,12 @@
-import { EMAIL, link, OPERATOR, SPACARE_PRIVACY, WHATSAPP, type LegalSection } from '.';
+import {
+  EMAIL,
+  link,
+  OPERATOR,
+  SPACARE_PRIVACY,
+  SPORTCARE_PRIVACY,
+  WHATSAPP,
+  type LegalSection,
+} from '.';
 
 export const PRIVACY_INTRO = `<p>Kebijakan ini menjelaskan data apa yang dikumpulkan PosCare, untuk apa dipakai, siapa yang menerimanya, dan hak Anda atas data tersebut. PosCare dikelola oleh ${OPERATOR} ("kami").</p>`;
 
@@ -17,9 +25,9 @@ export const PRIVACY_SECTIONS: LegalSection[] = [
     html: `<p>Kebijakan ini berlaku untuk:</p>
 <ul>
   <li><strong>Situs poscare.id</strong>, halaman informasi tentang PosCare dan solusinya.</li>
-  <li><strong>Produk PosCare</strong>, yaitu aplikasi untuk tiap jenis usaha yang dibangun di atas platform PosCare. Saat ini yang tersedia adalah SpaCare (spa.poscare.id); LaundryCare, SportCare, dan RetailCare segera hadir.</li>
+  <li><strong>Produk PosCare</strong>, yaitu aplikasi untuk tiap jenis usaha yang dibangun di atas platform PosCare. Saat ini yang tersedia adalah SpaCare (spa.poscare.id) dan SportCare (sport.poscare.id); LaundryCare dan RetailCare segera hadir.</li>
 </ul>
-<p>Setiap produk dapat memiliki kebijakan privasi sendiri yang menjelaskan data khusus produk tersebut. Untuk SpaCare, baca ${SPACARE_PRIVACY}. Bila ada perbedaan, kebijakan produk yang berlaku untuk pemakaian produk itu.</p>`,
+<p>Setiap produk dapat memiliki kebijakan privasi sendiri yang menjelaskan data khusus produk tersebut. Baca ${SPACARE_PRIVACY} dan ${SPORTCARE_PRIVACY}. Bila ada perbedaan, kebijakan produk yang berlaku untuk pemakaian produk itu.</p>`,
   },
   {
     id: 'situs',
@@ -38,7 +46,7 @@ export const PRIVACY_SECTIONS: LegalSection[] = [
 <ul>
   <li><strong>Akun:</strong> nama, email, password (disimpan dalam bentuk hash, tidak bisa dibaca), dan akun Google bila Anda masuk dengan Google.</li>
   <li><strong>Usaha:</strong> nama usaha, alamat, nomor WhatsApp, logo, serta layanan, produk, dan harga.</li>
-  <li><strong>Data pelanggan yang Anda masukkan:</strong> misalnya nama, nomor HP, dan riwayat transaksi. Jenis data pelanggan lain bergantung pada produk; misalnya SpaCare juga menyimpan data anak dan catatan treatment.</li>
+  <li><strong>Data pelanggan yang Anda masukkan:</strong> misalnya nama, nomor HP, dan riwayat transaksi. Jenis data pelanggan lain bergantung pada produk; misalnya SpaCare juga menyimpan data anak dan catatan treatment, dan SportCare menyimpan data booking lapangan dari pemesan.</li>
   <li><strong>Transaksi dan keuangan:</strong> penjualan, pembayaran, saldo, langganan, serta rekening atau e-wallet tujuan penarikan.</li>
   <li><strong>Teknis:</strong> alamat IP, jenis perangkat dan browser, serta catatan aktivitas untuk keamanan (misalnya waktu masuk).</li>
 </ul>`,
@@ -70,7 +78,7 @@ export const PRIVACY_SECTIONS: LegalSection[] = [
   <li>Mitra penyedia jasa pembayaran berizin, untuk memproses pembayaran QRIS dan penarikan saldo.</li>
   <li>Penyedia layanan email, untuk mengirim email dari aplikasi.</li>
   <li>Google, bila Anda memilih masuk dengan Google.</li>
-  <li>WhatsApp (Meta), bila Anda menghubungi kami lewat WhatsApp.</li>
+  <li>WhatsApp (Meta), bila Anda menghubungi kami lewat WhatsApp, serta penyedia layanan pengiriman WhatsApp untuk notifikasi otomatis produk (misalnya konfirmasi dan pengingat booking di SportCare).</li>
   <li>Penyedia hosting, jaringan, dan server, untuk menjalankan dan menyimpan situs dan aplikasi.</li>
 </ul>
 <p>Nama mitra untuk tiap produk dijelaskan di kebijakan privasi produk tersebut. Sebagian mitra dapat memproses data di luar Indonesia; kami memilih mitra yang menjaga keamanan data dengan standar yang memadai. Data juga dapat diberikan kepada pihak berwenang bila diwajibkan hukum.</p>
