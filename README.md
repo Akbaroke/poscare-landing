@@ -110,6 +110,7 @@ PosCare dikelola oleh **PT Akbar Teknologi Utama**, Bekasi, Indonesia.
 
 - WhatsApp: [0851-4490-9320](https://wa.me/6285144909320)
 - Email: [support@poscare.id](mailto:support@poscare.id)
+- Instagram: [@poscare.id](https://www.instagram.com/poscare.id/)
 - [Kebijakan Privasi](https://poscare.id/privasi) · [Syarat & Ketentuan](https://poscare.id/syarat)
 
 ---

@@ -1,6 +1,6 @@
 ---
 import '../styles/global.css';
-import { SITE } from '../data/site';
+import { INSTAGRAM_URL, SITE } from '../data/site';
 
 interface Props {
   title?: string;
@@ -27,6 +27,7 @@ const orgJsonLd = {
     addressCountry: 'ID',
   },
   email: SITE.email,
+  sameAs: [INSTAGRAM_URL],
   contactPoint: {
     '@type': 'ContactPoint',
     contactType: 'customer support',

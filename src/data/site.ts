@@ -9,6 +9,7 @@ export const SITE = {
   /** WhatsApp in international format (wa.me), and as people read it. */
   whatsapp: '6285144909320',
   whatsappDisplay: '0851-4490-9320',
+  instagram: 'poscare.id',
   company: 'PT Akbar Teknologi Utama',
   city: 'Bekasi',
   country: 'Indonesia',
@@ -31,6 +32,8 @@ export const SPORTCARE_URL = 'https://sport.poscare.id';
 export const SPORTCARE_LANDING_URL = SPORTCARE_URL;
 export const SPORTCARE_LOGIN_URL = `${SPORTCARE_URL}/login`;
 export const SPORTCARE_REGISTER_URL = `${SPORTCARE_URL}/register`;
+
+export const INSTAGRAM_URL = `https://www.instagram.com/${SITE.instagram}/`;
 
 /** WhatsApp chat with a prefilled message: the main contact channel for owners. */
 export function whatsapp(text: string): string {

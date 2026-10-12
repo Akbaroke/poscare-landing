@@ -1,6 +1,6 @@
 ---
 import { isExternal, PRODUCTS, STATUS_LABEL } from '../data/products';
-import { SITE, whatsapp } from '../data/site';
+import { INSTAGRAM_URL, SITE, whatsapp } from '../data/site';
 import Logo from './Logo.astro';
 
 const year = new Date().getFullYear();
@@ -62,6 +62,11 @@ const linkClass = 'text-[15px] text-muted transition-colors hover:text-ink';
         <li>
           <a href={`mailto:${SITE.email}`} class={linkClass}>
             {SITE.email}
+          </a>
+        </li>
+        <li>
+          <a href={INSTAGRAM_URL} rel="noopener" class={linkClass}>
+            Instagram @{SITE.instagram}
           </a>
         </li>
       </ul>
